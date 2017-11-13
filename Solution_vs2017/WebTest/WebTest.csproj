@@ -75,11 +75,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="pages\vue\index.html" />
+    <Content Include="scripts\lib\vue\vue.common.js" />
+    <Content Include="scripts\lib\vue\vue.esm.js" />
+    <Content Include="scripts\lib\vue\vue.js" />
+    <Content Include="scripts\lib\vue\vue.min.js" />
+    <Content Include="scripts\lib\vue\vue.runtime.common.js" />
+    <Content Include="scripts\lib\vue\vue.runtime.esm.js" />
+    <Content Include="scripts\lib\vue\vue.runtime.js" />
+    <Content Include="scripts\lib\vue\vue.runtime.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

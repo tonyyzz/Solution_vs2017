@@ -10,8 +10,11 @@ namespace ConsoleAppTest.Test
 	{
 		public void Do()
 		{
-			List<int> li = new List<int>() { 234, 657234, 12, 212 };
-			var d = li.Where(m => 5 < 9).ToList();
+			List<int> list = new List<int>() { 234, 657234, 12, 212 };
+			var d = list.Where(m => 5 < 9).ToList();
+			var g = list.FirstOrDefault();
+
+			//list.Average
 		}
 	}
 }

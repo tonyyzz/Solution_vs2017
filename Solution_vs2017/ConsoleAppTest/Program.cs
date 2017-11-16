@@ -12,7 +12,8 @@ namespace ConsoleAppTest
 		static void Main(string[] args)
 		{
 			Console.WriteLine($"测试中...");
-			new ThreadPoolTest().Do();
+
+			new WhereLiTest().Do();
 			
 			Console.ReadKey();
 		}

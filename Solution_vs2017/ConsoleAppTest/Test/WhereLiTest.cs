@@ -14,7 +14,7 @@ namespace ConsoleAppTest.Test
 			var d = list.Where(m => 5 < 9).ToList();
 			var g = list.FirstOrDefault();
 
-			//list.Average
+			 list.Sort((m, n) => m - n);
 		}
 	}
 }

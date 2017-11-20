@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new WhereLiTest().Do();
+			new GuidTest().Do();
 			
 			Console.ReadKey();
 		}

@@ -13,6 +13,8 @@ namespace ConsoleAppTest.Test
 			//GUID 32位字符串 可作为订单号
 			var guidStr = Guid.NewGuid().ToString("N");
 			int count = guidStr.Count();
+
+			//program
 		}
 	}
 }

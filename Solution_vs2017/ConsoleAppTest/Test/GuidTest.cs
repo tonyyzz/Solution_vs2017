@@ -15,6 +15,7 @@ namespace ConsoleAppTest.Test
 			int count = guidStr.Count();
 
 			//program
+			//test
 		}
 	}
 }

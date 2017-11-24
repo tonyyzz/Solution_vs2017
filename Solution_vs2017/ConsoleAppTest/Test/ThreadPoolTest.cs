@@ -11,34 +11,34 @@ namespace ConsoleAppTest.Test
 	{
 		public void Do()
 		{
-			//ThreadPool.QueueUserWorkItem(o =>
-			//{
-			//	while (true)
-			//	{
-			//		Console.WriteLine($"线程运行中...  {DateTime.Now.ToStr()}");
-
-			//		Thread.Sleep(1);
-			//		if (true)
-			//		{
-			//			continue;
-			//		}
-			//	}
-			//});
-
-			new Thread(m =>
+			ThreadPool.QueueUserWorkItem(o =>
 			{
-					while (true)
-					{
-						Console.WriteLine($"线程运行中...  {DateTime.Now.ToStr()}");
+				while (true)
+				{
+					Console.WriteLine($"线程运行中...  {DateTime.Now.ToStr()}");
 
-						Thread.Sleep(1);
-						if (true)
-						{
-							continue;
-						}
+					Thread.Sleep(1);
+					if (true)
+					{
+						continue;
 					}
-			})
-			{ IsBackground = true, Priority = ThreadPriority.Highest }.Start();
+				}
+			});
+
+			//new Thread(m =>
+			//{
+			//		while (true)
+			//		{
+			//			Console.WriteLine($"线程运行中...  {DateTime.Now.ToStr()}");
+
+			//			Thread.Sleep(1);
+			//			if (true)
+			//			{
+			//				continue;
+			//			}
+			//		}
+			//})
+			//{ IsBackground = true, Priority = ThreadPriority.Highest }.Start();
 
 		}
 	}

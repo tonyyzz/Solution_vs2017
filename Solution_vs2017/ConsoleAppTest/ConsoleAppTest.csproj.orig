@@ -49,9 +49,12 @@
     <Compile Include="Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Test\DecimalTest.cs" />
-    <Compile Include="Test\GuidTest.cs" />
     <Compile Include="Test\DeepCopyTest.cs" />
+=======
+    <Compile Include="Test\GuidTest.cs" />
+>>>>>>> 68a0e65f8e92c92100748e02debc70400d3d2cf2
     <Compile Include="Test\ThreadPoolTest.cs" />
     <Compile Include="Test\WhereLiTest.cs" />
   </ItemGroup>

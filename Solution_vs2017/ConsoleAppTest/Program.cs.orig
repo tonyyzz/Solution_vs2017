@@ -1,0 +1,25 @@
+﻿using ConsoleAppTest.Test;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppTest
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine($"测试中...");
+
+<<<<<<< HEAD
+			new DecimalTest().Do();
+=======
+			new GuidTest().Do();
+>>>>>>> 68a0e65f8e92c92100748e02debc70400d3d2cf2
+			
+			Console.ReadKey();
+		}
+	}
+}

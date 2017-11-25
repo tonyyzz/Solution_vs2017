@@ -52,6 +52,7 @@
     <Compile Include="Test\DecimalTest.cs" />
     <Compile Include="Test\GuidTest.cs" />
     <Compile Include="Test\DeepCopyTest.cs" />
+    <Compile Include="Test\MultipleThreadPoolTest.cs" />
     <Compile Include="Test\ThreadPoolTest.cs" />
     <Compile Include="Test\WhereLiTest.cs" />
   </ItemGroup>

@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new DecimalTest().Do();
+			new MultipleThreadPoolTest().Do();
 			
 			Console.ReadKey();
 		}

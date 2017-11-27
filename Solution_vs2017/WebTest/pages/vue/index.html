@@ -7,6 +7,17 @@
 	<script src="../../scripts/lib/vue/vue.js"></script>
 </head>
 <body>
-
+	<!--学习链接：http://www.runoob.com/vue2/vue-template-syntax.html-->
+	<div id="app">
+		<p v-html="message"></p>
+	</div>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				message:'菜鸟教程'
+			}
+		})
+	</script>
 </body>
 </html>

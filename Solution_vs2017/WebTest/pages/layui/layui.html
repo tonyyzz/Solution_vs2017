@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="../../scripts/lib/jquery/jquery-1.10.2.min.js"></script>
+	<script src="../../scripts/lib/layui/layui.js"></script>
+	<!-- layui模块配置文件 -->
+	<!--<script src="../res/js/layui/layuiConfig.js"></script>-->
+
+	<style>
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+
+		#div2 {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body style="">
+
+	layUI
+
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+
+
+	<!--http://www.layui.com/-->
+	<!--http://www.layui.com/doc/base/infrastructure.html#define-->
+
+	<script>
+		//module
+		//自定义模块使用实例：
+		//必要的模块加载:[]
+		////1、
+		//layui.use(["demo"], function () {
+		//	var demo = layui.demo;
+		//	demo.func(1);
+		//});
+		////2、
+		//layui.use(["demo"], function (demo) {
+		//	demo.func(2);
+		//});
+
+
+		//link()
+		//layui.link("/scripts/lib/bootstrap/css/bootstrap.css");
+
+
+		//data()（针对localStorage）
+		//增加 or 更新
+		//layui.data('test', { key: 'nickname', value: '贤心2' });
+		//删除
+		//layui.data('test', { key: 'nickname', remove: true });
+		//移除test表
+		//layui.data('test', null);
+		//查询
+		//var localTest = layui.data('test');
+		//console.log(localTest);
+
+
+
+		////device()
+		//console.log(navigator.userAgent);
+		//var device = layui.device()
+		//console.log(device);
+		//alert(JSON.stringify(device));
+
+
+		//console.log(layui.cache);
+
+		//layui.cache.c = "45";
+		//console.log(layui.cache);
+
+		//var arr = { a: 56, b: 89 };
+		//layui.each(arr, function (k, v) {
+		//	console.log(k, v);
+		//})
+
+		//var fontSize = layui.getStyle(document.body, 'border')
+		//console.log(fontSize);
+
+		//layui.img("http://img2.niutuku.com/desk/1207/1057/ntk121845.jpg", function (n,m) {
+		//	console.log(n,m)
+		//}, function () { })
+
+		//console.log(layui.img);
+
+		//var arr = [{ a: 'b' }, { a: 'a' }, { a: 'c' }];
+		//var newArr = layui.sort(arr,'a')
+		//console.log(newArr);
+
+		//layui.hint().error('出错啦')
+		//console.log(layui.hint())
+
+		//layui.onevent('yzz', ['onmouseenter'], function () {
+		//	console.log('yzz onevent');
+		//});
+		//layui.event('yzz', ['onmouseenter'])
+
+		layui.use(function () {
+
+		})
+
+		//阻止事件冒泡
+		//$(function () {
+		//	$("#div1").click(function (e) {
+		//		layui.stope(e)
+		//		console.log("div1");
+		//	})
+		//	$("#div2").click(function (e) {
+		//		layui.stope(e)
+		//		console.log("div2");
+		//	})
+		//})
+	</script>
+
+</body>
+</html>

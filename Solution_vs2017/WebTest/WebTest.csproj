@@ -67,7 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="pages\bootstrap\index.html" />
+    <Content Include="pages\bootstrap.html" />
+    <Content Include="pages\vue.html" />
     <Content Include="scripts\lib\bootstrap\config.json" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -81,7 +82,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pages\vue\index.html" />
     <Content Include="scripts\lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="scripts\lib\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="scripts\lib\bootstrap\css\bootstrap.css" />
@@ -89,6 +89,8 @@
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="scripts\lib\bootstrap\js\bootstrap.js" />
     <Content Include="scripts\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="scripts\lib\jquery\jquery-1.10.2.js" />
+    <Content Include="scripts\lib\jquery\jquery-1.10.2.min.js" />
     <Content Include="scripts\lib\vue\vue.common.js" />
     <Content Include="scripts\lib\vue\vue.esm.js" />
     <Content Include="scripts\lib\vue\vue.js" />

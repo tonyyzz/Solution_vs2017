@@ -68,6 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="pages\bootstrap.html" />
+    <Content Include="pages\layui.html" />
     <Content Include="pages\vue.html" />
     <Content Include="scripts\lib\bootstrap\config.json" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />

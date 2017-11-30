@@ -204,6 +204,8 @@
     <Content Include="scripts\lib\vue\vue.runtime.esm.js" />
     <Content Include="scripts\lib\vue\vue.runtime.js" />
     <Content Include="scripts\lib\vue\vue.runtime.min.js" />
+    <Content Include="res\js\layui\layuiConfig.js" />
+    <Content Include="res\js\layui\modules\demo.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

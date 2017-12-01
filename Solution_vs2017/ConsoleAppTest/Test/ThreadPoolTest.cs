@@ -17,7 +17,7 @@ namespace ConsoleAppTest.Test
 				{
 					Console.WriteLine($"线程运行中...  {DateTime.Now.ToStr()}");
 
-					Thread.Sleep(1);
+					//Thread.Sleep(1);
 					if (true)
 					{
 						continue;

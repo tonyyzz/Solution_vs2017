@@ -73,6 +73,7 @@
     <Content Include="pages\layui\layui_1_css.html" />
     <Content Include="pages\layui\layui_3_layout.html" />
     <Content Include="pages\layui\layui_2_module.html" />
+    <Content Include="pages\layui\lsyui_4_layer.html" />
     <Content Include="pages\vue.html" />
     <Content Include="scripts\lib\bootstrap\config.json" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -227,13 +228,13 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54943</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:54943/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://192.168.1.102/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>

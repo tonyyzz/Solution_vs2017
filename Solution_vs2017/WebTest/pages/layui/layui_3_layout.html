@@ -5,41 +5,149 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
 	<link href="../../scripts/lib/layui/css/layui.css" rel="stylesheet" />
+	<script src="../../scripts/lib/layui/layui.js"></script>
+
 </head>
-<body>
-	<!--http://www.layui.com/doc/element/layout.html-->
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
 
 
-	<div class="layui-container">
-		常规布局（以中型屏幕桌面为例）：
-		<div class="layui-row">
-			<div class="layui-col-md9">
-				你的内容 9/12
-			</div>
-			<div class="layui-col-md3">
-				你的内容 3/12
+
+
+
+		<div class="layui-header">
+			<div class="layui-logo">layui 后台布局</div>
+
+
+
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item layui-this" ><a href="">控制台<span class="layui-badge">9</span></a></li>
+				<li class="layui-nav-item"><a href="">商品管理<span class="layui-badge-dot"></span></a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">其它系统</a>
+					<dl class="layui-nav-child">
+						<dd><a href="">邮件管理</a></dd>
+						<dd><a href="">消息管理</a></dd>
+						<dd><a href="">授权管理</a></dd>
+					</dl>
+				</li>
+			</ul>
+
+
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item">
+					<a href="javascript:;">
+						贤心
+					</a>
+					<dl class="layui-nav-child">
+						<dd><a href="">基本资料</a></dd>
+						<dd><a href="">安全设置</a></dd>
+					</dl>
+				</li>
+				<li class="layui-nav-item"><a href="">退了</a></li>
+			</ul>
+
+
+
+		</div>
+
+
+
+
+
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree " lay-filter="test">
+					<li class="layui-nav-item layui-nav-itemed">
+						<a class="" href="javascript:;">所有商品</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;">列表一</a></dd>
+							<dd><a href="javascript:;">列表二</a></dd>
+							<dd><a href="javascript:;">列表三</a></dd>
+							<dd><a href="">超链接</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item" >
+						<a href="javascript:;">解决方案</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;">列表一</a></dd>
+							<dd><a href="javascript:;">列表二</a></dd>
+							<dd><a href="">超链接</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item" lay-unselect=""><a href="">云市场</a></li>
+					<li class="layui-nav-item"><a href="">发布商品</a></li>
+				</ul>
 			</div>
 		</div>
 
-		移动设备、平板、桌面端的不同表现：
-		<div class="layui-row">
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-				移动：6/12 | 平板：6/12 | 桌面：4/12
-			</div>
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-				移动：6/12 | 平板：6/12 | 桌面：4/12
-			</div>
-			<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-				移动：4/12 | 平板：12/12 | 桌面：4/12
-			</div>
-			<div class="layui-col-xs4 layui-col-sm7 layui-col-md8">
-				移动：4/12 | 平板：7/12 | 桌面：8/12
-			</div>
-			<div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
-				移动：4/12 | 平板：5/12 | 桌面：4/12
+
+
+
+
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 20px;">
+
+				<blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+				<blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字</blockquote>
+				
+				<fieldset class="layui-elem-field">
+					<legend>字段集区块 - 默认风格</legend>
+					<div class="layui-field-box">
+						内容区域
+					</div>
+				</fieldset>
+
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>字段集区块 - 横线风格</legend>
+					<div class="layui-field-box">
+						内容区域
+					</div>
+				</fieldset>
+
+				<hr class="layui-bg-red">
+
+				<script>
+					//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+					layui.use('element', function () {
+						var element = layui.element;
+						
+					});
+				</script>
+
+
+
 			</div>
 		</div>
+
+
+
+
+
+
+
+
+		<div class="layui-footer">
+			<!-- 底部固定区域 -->
+			© layui.com - 底部固定区域
+		</div>
+
+
+
+
+
+
 	</div>
+	<!--<script>
+		//JavaScript代码区域
+		layui.use(['element', 'form'], function (element, form) {
 
+		});
+	</script>-->
 </body>
 </html>

@@ -75,6 +75,10 @@
     <Content Include="pages\layui\layui_2_module.html" />
     <Content Include="pages\layui\layui_5_laydate.html" />
     <Content Include="pages\layui\layui_4_layer.html" />
+    <Content Include="pages\layui\layui_6_layim.html" />
+    <Content Include="pages\layui\layui_7_laypage.html" />
+    <Content Include="pages\layui\layui_8_laytpl.html" />
+    <Content Include="pages\layui\layui_9_table.html" />
     <Content Include="pages\vue.html" />
     <Content Include="scripts\lib\bootstrap\config.json" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -84,6 +88,7 @@
     <Content Include="scripts\lib\layui\font\iconfont.eot" />
     <Content Include="scripts\lib\layui\font\iconfont.ttf" />
     <Content Include="scripts\lib\layui\font\iconfont.woff" />
+    <Content Include="pages\layui\table.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

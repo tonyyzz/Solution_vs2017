@@ -4,9 +4,44 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
+	<link href="../../scripts/lib/layui/css/layui.css" rel="stylesheet" />
 	<script src="../../scripts/lib/layui/layui.js"></script>
 </head>
 <body>
 	<!--http://www.layui.com/doc/modules/laydate.html-->
+	<div class="layui-container">
+		<div class="layui-input-block">
+			<!-- 注意：这一层元素并不是必须的 -->
+			<input type="text" class="layui-input" id="test1" readonly="readonly">
+		</div>
+	</div>
+	
+
+	<script>
+		layui.use(['laydate'], function (laydate) { 
+			var ins1 =laydate.render({
+				elem: "#test1",
+				type: 'date',
+				//range: '|',
+				//format: 'yyyy年的M月某天晚上，大概H点',
+				//value: '2018-08-18',
+				min: 0,
+				show: true,
+				//showBottom: false,
+				btns: ['clear', 'confirm'],
+				//lang: 'en',
+				//theme: '#1E1E1E',
+				calendar: true,
+				mark: {
+					'0-0-15':"中旬在托管人突然"
+				},
+				change: function (value, date, endDate) {
+					ins1.hint(value), //在控件上弹出value值
+				}
+
+			})
+		})
+	</script>
+
 </body>
 </html>

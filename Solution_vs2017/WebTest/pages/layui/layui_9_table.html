@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link href="../../scripts/lib/layui/css/layui.css" rel="stylesheet" />
+	<script src="../../scripts/lib/layui/layui.js"></script>
+</head>
+<body>
+	<!--http://www.layui.com/doc/modules/table.html-->
+
+	<div class="layui-container">
+		<table id="demo" lay-filter="test"></table>
+	</div>
+
+	<script>
+		layui.use(['table'], function (table) {
+			table.render({
+				elem: '#demo'
+				, height: 500
+				, url: 'table.json' //数据接口
+				, page: true //开启分页
+				, cols: [[ //表头
+					{ field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' }
+					, { field: 'username', title: '用户名', width: 80 }
+					, { field: 'sex', title: '性别', width: 80, sort: true }
+					, { field: 'city', title: '城市', width: 80 }
+					, { field: 'sign', title: '签名', width: 177 }
+					, { field: 'experience', title: '积分', width: 80, sort: true }
+					, { field: 'score', title: '评分', width: 80, sort: true }
+					, { field: 'classify', title: '职业', width: 80 }
+					, { field: 'wealth', title: '财富', width: 135, sort: true }
+				]]
+			});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link href="../../scripts/lib/layui/css/layui.css" rel="stylesheet" />
+	<script src="../../scripts/lib/layui/layui.js"></script>
+</head>
+<body>
+	<!--http://www.layui.com/doc/modules/laypage.html-->
+	<div class="layui-container">
+		<div id="test1" style="text-align:center;"></div>
+	</div>
+	
+	<script>
+		layui.use(['laypage'], function (laypage) {
+			//执行一个laypage实例
+			laypage.render({
+				elem: 'test1', //注意，这里的 test1 是 ID，不用加 # 号
+				count: 100, //数据总数，从服务端得到
+				limit: 2,
+				limits:[10,20,100],
+				groups: 10,
+				//first: "首页",
+				//last:"尾页",
+				layout: ['page', 'limit', 'skip'],
+				theme: '#c00',
+				jump: function (obj, first) {
+					console.log(obj, first);
+				}
+
+			});
+
+			
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<script src="../../scripts/lib/layui/layui.js"></script>
+	<style>
+		#div1 {
+			width:50px;
+			height:50px;
+			background-color:#ccc;
+			margin:50px auto;
+		}
+		body .demo-class .layui-layer-title {
+			background: #c00;
+			color: #fff;
+			border: none;
+		}
+
+		body .demo-class .layui-layer-btn {
+			border-top: 1px solid #E9E7E7
+		}
+
+			body .demo-class .layui-layer-btn a {
+				background: #333;
+			}
+
+			body .demo-class .layui-layer-btn .layui-layer-btn1 {
+				background: #999;
+			}
+	</style>
+</head>
+<body>
+	<!--http://www.layui.com/doc/modules/layer.html-->
+
+
+	<div id="div1"></div>
+
+	<script>
+		layui.use(['layer'], function (layer) {
+			var $ = layui.$;
+			//layer.config({
+			//	skin: 'demo-class'
+			//})
+			//layer.msg("hello world!", { time: 1000 });
+			//layer.open({
+			//	type: 0,
+			//	//title: false,
+			//	content: '内容',
+			//	//skin: 'demo-class',
+			//	//area: ['500px', '300px'],
+			//	//offset: '100px',
+			//	offset: 'rb'
+			//});
+
+			//layer.alert('酷毙了', { icon: 6 });
+
+			//layer.msg('不开心。。', { icon: 5 });
+
+			//layer.load(2);
+
+			//layer.confirm('纳尼？', {
+			//	btn: ['按钮一', '按钮二', '按钮三'] //可以无限个按钮
+			//	, btn3: function (index, layero) {
+			//		//按钮【按钮三】的回调
+			//		console.log("3", index, layero);
+			//	}
+			//}, function (index, layero) {
+			//	//按钮【按钮一】的回调
+			//	console.log("1", index, layero);
+			//}, function (index) {
+			//	//按钮【按钮二】的回调
+			//	console.log("2", index);
+			//});
+
+			//eg2
+			//layer.open({
+			//	type:4,
+			//	content: ['test','#div1'],
+				
+			//	closeBtn: 0,
+			//	shade: 0,
+			//	shadeClose: true,
+			//	//anim: 4,
+			//	//isOutAnim: false,
+			//	//maxmin: true,
+			//	//area: ['1000px', '300px'],
+			//	//fixed: false,
+			//	//resizing: function (layero) {
+			//	//	console.log(layero);
+			//	//} ,
+			//	//moveOut: true,
+			//	tips: 1
+			//});
+
+			//var index = layer.open({
+			//	content: 'test'
+			//});
+
+			//console.log(index);
+			//setTimeout(function () {
+			//	layer.close(index);
+			//}, 3000);
+
+			//var index = layer.confirm("确认关闭吗？",
+			//	function () {
+			//		console.log(1);
+			//		layer.close(index);
+			//		layer.msg("关闭了", {anim:0}, function () {
+			//			console.log("关闭了");
+			//		});
+			//	}, function () {
+			//		console.log(2);
+			//	})
+			//console.log(index);
+			//var index = layer.load(2);
+			//setTimeout(function()	 {
+			//	layer.close(index);
+			//},1000)
+
+			//layer.tips('只想提示地精准些', '#div1', { tips: 1});
+			//$('#div1').on('click', function () {
+			//	var that = this;
+			//	layer.tips('只想提示地精准些', that); //在元素的事件回调体中，follow直接赋予this即可
+			//});
+
+			//layer.tab({
+			//	area: ['600px', '300px'],
+			//	tab: [{
+			//		title: 'TAB1',
+			//		content: '内容1'
+			//	}, {
+			//		title: 'TAB2',
+			//		content: '内容2'
+			//	}, {
+			//		title: 'TAB3',
+			//		content: '内容3'
+			//	}]
+			//}); 
+
+			//例子2
+			//layer.prompt({
+			//	formType: 0,
+			//	value: '初始值',
+			//	title: '请输入值',
+			//	//area: ['800px', '350px'] //自定义文本域宽高
+			//}, function (value, index, elem) {
+			//	alert(value); //得到value
+			//	layer.close(index);
+			//	});
+
+			//例子1
+			//layer.prompt(function (value, index, elem) {
+			//	alert(value); //得到value
+			//	layer.close(index);
+			//});
+
+			var jsonObj = {
+				"title": "34", //相册标题
+				"id": 123, //相册id
+				"start": 0, //初始显示的图片序号，默认0
+				"data": [   //相册包含的图片，数组格式
+					{
+						"alt": "33",
+						"pid": 666, //图片id
+						"src": "http://img2.niutuku.com/desk/1208/1901/ntk-1901-36829.jpg", //原图地址
+						//"thumb": "http://img2.niutuku.com/desk/1208/1901/ntk-1901-36829.jpg" //缩略图地址
+					},
+					{
+						"alt": "44",
+						"pid": 777, //图片id
+						"src": "http://img2.niutuku.com/desk/1208/1901/ntk-1901-36829.jpg", //原图地址
+						//"thumb": "http://img2.niutuku.com/desk/1208/1901/ntk-1901-36829.jpg" //缩略图地址
+					}
+				]
+			}
+
+			//http://res.layui.com/images/fly/fly.jpg
+
+			layer.photos({
+				photos: jsonObj,
+				anim: 5, //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+				tab: function (pic) {
+					console.log(pic)
+				}
+			});
+
+		})
+	</script>
+</body>
+</html>

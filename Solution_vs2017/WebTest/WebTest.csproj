@@ -71,6 +71,7 @@
     <Content Include="pages\bootstrap.html" />
     <Content Include="pages\layui\layui.html" />
     <Content Include="pages\layui\layui_10_util.html" />
+    <Content Include="pages\layui\layui_11_form.html" />
     <Content Include="pages\layui\layui_1_css.html" />
     <Content Include="pages\layui\layui_3_layout.html" />
     <Content Include="pages\layui\layui_2_module.html" />

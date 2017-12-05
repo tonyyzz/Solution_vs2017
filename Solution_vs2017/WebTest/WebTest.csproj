@@ -68,7 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="index.html" />
-    <Content Include="pages\bootstrap.html" />
+    <Content Include="pages\bootstrap\bootstrap.html" />
     <Content Include="pages\layui\layui.html" />
     <Content Include="pages\layui\layui_10_util.html" />
     <Content Include="pages\layui\layui_11_form.html" />
@@ -81,7 +81,7 @@
     <Content Include="pages\layui\layui_7_laypage.html" />
     <Content Include="pages\layui\layui_8_laytpl.html" />
     <Content Include="pages\layui\layui_9_table.html" />
-    <Content Include="pages\vue.html" />
+    <Content Include="pages\vue\vue.html" />
     <Content Include="scripts\lib\bootstrap\config.json" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />

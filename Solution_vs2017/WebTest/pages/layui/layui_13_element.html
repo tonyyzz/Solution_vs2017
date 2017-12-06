@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="../../scripts/lib/layui/css/layui.css" rel="stylesheet" />
+	<script src="../../scripts/lib/layui/layui.js"></script>
+	<style>
+		body {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-container">
+		<div class="layui-progress layui-progress-big" lay-filter="demo" >
+			<div class="layui-progress-bar layui-bg-green" lay-percent="50%"></div>
+		</div>
+	</div>
+
+	<script>
+		layui.use(['element'], function (element) {
+			////一些事件监听
+			//element.on('tab(demo)', function (data) {
+			//	console.log(data);
+			//});
+
+			//setTimeout(function () {
+			//	element.tabAdd('demo', {
+			//		title: '选项卡的标题'
+			//		, content: '选项卡的内容' //支持传入html
+			//		, id: '3'
+			//	});
+			//}, 400);
+
+			//setTimeout(function () {
+			//	element.tabDelete('demo', 1);
+			//}, 800);
+
+			//setTimeout(function () {
+			//	//element.tabDelete('demo', 1);
+			//	element.tabChange('demo', '2'); 
+			//}, 1500);
+			console.log(4)
+			element.progress('demo', '30%');
+		})
+	</script>
+</body>
+</html>

@@ -22,5 +22,15 @@ namespace System
 		{
 			return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj));
 		}
+
+		public static string SerializeObject<T>(this T obj) where T : class
+		{
+			return JsonConvert.SerializeObject(obj);
+		}
+
+		public static T DeserializeObject<T>(this string obj)
+		{
+			return JsonConvert.DeserializeObject<T>(obj);
+		}
 	}
 }

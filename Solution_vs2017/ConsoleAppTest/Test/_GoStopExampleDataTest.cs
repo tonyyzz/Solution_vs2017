@@ -15,14 +15,19 @@ namespace ConsoleAppTest.Test
 			{
 				li.Add(i);
 			}
-			var CardHaveList1 = new List<int>() { 1, 2, 3, 49, 50, 10, 14, 18, 22, 38 }; //10张
-			var CardHaveList2 = new List<int>() { 7, 11, 15, 19, 23, 27, 31, 35, 39, 44 }; //10张
-			var CardShowList = new List<int>() { 5, 26, 30, 34, 9, 13, 17, 21 };  //8张
+			var CardHaveList1 = new List<int>() { 5, 13, 30, 4, 10, 18, 22, 38, 17, 21 }; //10张
+			var CardHaveList2 = new List<int>() { 7, 11, 15, 19, 23, 27, 35, 2, 39, 44 }; //10张
+			var CardShowList = new List<int>() { 6, 14, 31, 1, 26, 3, 34, 9 };  //8张
 			var CardHideList = new List<int>() { }; //22张
 
 			var intersection1 = CardHaveList1.Intersect(CardHaveList2).ToList();
 			var intersection2 = CardHaveList1.Intersect(CardShowList).ToList();
 			var intersection3 = CardHaveList2.Intersect(CardShowList).ToList();
+
+			if (CardHaveList1.Count() != 10 || CardHaveList2.Count() != 10 || CardShowList.Count() != 8)
+			{
+				throw new Exception("个数不对");
+			}
 
 			if (intersection1.Any())
 			{

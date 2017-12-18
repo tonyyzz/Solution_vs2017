@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\DateTimeHelper.cs" />
-    <Compile Include="Helper\ObjectHelper.cs" />
+    <Compile Include="_Helper\DateTimeHelper.cs" />
+    <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\DecimalTest.cs" />

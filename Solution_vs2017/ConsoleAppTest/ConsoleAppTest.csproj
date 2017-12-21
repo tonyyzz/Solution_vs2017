@@ -45,13 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Test\DeepCopyTest.cs" />
     <Compile Include="_Helper\DateTimeHelper.cs" />
     <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\DecimalTest.cs" />
     <Compile Include="Test\GuidTest.cs" />
-    <Compile Include="Test\DeepCopyTest.cs" />
     <Compile Include="Test\ListTest.cs" />
     <Compile Include="Test\MultipleThreadPoolTest.cs" />
     <Compile Include="Test\ThreadPoolTest.cs" />

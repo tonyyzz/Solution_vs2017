@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolBase.cs" />
-    <Compile Include="Test\DeepCopyTest.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
     <Compile Include="_Helper\DateTimeHelper.cs" />

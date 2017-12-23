@@ -45,18 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\DateTimeHelper.cs" />
-    <Compile Include="Helper\ObjectHelper.cs" />
+<<<<<<< HEAD
+    <Compile Include="ThreadPoolBaseInherit\ThreadPoolBase.cs" />
+    <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
+    <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
+=======
+    <Compile Include="Test\DeepCopyTest.cs" />
+>>>>>>> 891120dc9daa590dce6d2006897c2eda7709ed87
+    <Compile Include="_Helper\DateTimeHelper.cs" />
+    <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="Test\DecimalTest.cs" />
-    <Compile Include="Test\DeepCopyTest.cs" />
-=======
     <Compile Include="Test\GuidTest.cs" />
->>>>>>> 68a0e65f8e92c92100748e02debc70400d3d2cf2
+    <Compile Include="Test\ListTest.cs" />
+    <Compile Include="Test\MultipleThreadPoolTest.cs" />
     <Compile Include="Test\ThreadPoolTest.cs" />
     <Compile Include="Test\WhereLiTest.cs" />
+    <Compile Include="Test\_GoStopExampleDataTest.cs" />
+    <Compile Include="_SingletonT\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

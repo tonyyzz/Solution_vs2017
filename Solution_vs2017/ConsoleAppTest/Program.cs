@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new ThreadPoolInheritTest().Do();
+			new _GoStopExampleDataTest().Do();
 			
 			Console.ReadKey(); 
 		}

@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new RandomListTest().Do();
+			new CLRTest().Do();
 			
 			Console.ReadKey(); 
 		}

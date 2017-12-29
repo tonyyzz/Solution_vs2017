@@ -72,7 +72,10 @@
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />
     <Compile Include="Test\RandomListTest.cs" />
-    <Compile Include="Test\TsqlTest.cs" />
+    <Compile Include="tsqlTest\BaseDAL.cs" />
+    <Compile Include="tsqlTest\ModelHelper.cs" />
+    <Compile Include="tsqlTest\PersonModel.cs" />
+    <Compile Include="tsqlTest\TsqlTest.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolBase.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />

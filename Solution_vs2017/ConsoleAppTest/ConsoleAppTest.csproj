@@ -75,10 +75,10 @@
     <Compile Include="tsqlTest\BaseDAL.cs" />
     <Compile Include="tsqlTest\ModelHelper.cs" />
     <Compile Include="tsqlTest\PersonModel.cs" />
-    <Compile Include="tsqlTest\TsqlTest.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolBase.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
+    <Compile Include="tsqlTest\TsqlTest.cs" />
     <Compile Include="_Helper\DateTimeHelper.cs" />
     <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />

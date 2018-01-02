@@ -72,6 +72,7 @@
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />
     <Compile Include="Test\RandomListTest.cs" />
+    <Compile Include="Test\TimerTest.cs" />
     <Compile Include="tsqlTest\BaseDAL.cs" />
     <Compile Include="tsqlTest\ModelHelper.cs" />
     <Compile Include="tsqlTest\PersonModel.cs" />

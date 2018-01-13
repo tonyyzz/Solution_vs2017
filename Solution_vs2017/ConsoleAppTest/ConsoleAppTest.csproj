@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,8 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Test\BaiduYun.cs" />
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />
+    <Compile Include="Test\CookieReader.cs" />
     <Compile Include="Test\RandomListTest.cs" />
     <Compile Include="Test\ThreadPoolInfoTest.cs" />
     <Compile Include="Test\TimerTest.cs" />
@@ -93,6 +96,7 @@
     <Compile Include="Test\ThreadPoolTest.cs" />
     <Compile Include="Test\WhereLiTest.cs" />
     <Compile Include="Test\_GoStopExampleDataTest.cs" />
+    <Compile Include="_Helper\ResponseUtils.cs" />
     <Compile Include="_SingletonT\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +114,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSScriptControl">
+      <Guid>{0E59F1D2-1FBE-11D0-8FF2-00A0D10038BC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

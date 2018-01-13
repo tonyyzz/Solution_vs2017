@@ -11,22 +11,28 @@ namespace ConsoleAppTest.Test
 	{
 		public void Do()
 		{
-			ThreadPool.QueueUserWorkItem(o =>
+			int threadCount = 30;
+			for (int i = 0; i < threadCount; i++)
 			{
-				while (true)
+				Console.WriteLine(i);
+				ThreadPool.QueueUserWorkItem(o =>
 				{
-					Thread.Sleep(400);
-					ThreadPool.GetAvailableThreads(out int workThreads, out int completionPortThreads);
-					Console.WriteLine($"{workThreads}，{completionPortThreads}");
-					//ThreadPool.GetMaxThreads(out int workThreads, out int completionPortThreads);
-					//Console.WriteLine($"{workThreads},{completionPortThreads}");
-					//ThreadPool.GetMinThreads(out int workThreads, out int completionPortThread);
-					//Console.WriteLine($"{workThreads},{completionPortThread}");
-					Console.WriteLine(Thread.GetDomainID()); 
-				}
-			});
+					while (true)
+					{
+						Thread.Sleep(100);
+						ThreadPool.GetAvailableThreads(out int workThreads, out int completionPortThreads);
+						Console.WriteLine($"{workThreads}，{completionPortThreads}");
+						//ThreadPool.GetMaxThreads(out int workThreads, out int completionPortThreads);
+						//Console.WriteLine($"{workThreads},{completionPortThreads}");
+						//ThreadPool.GetMinThreads(out int workThreads, out int completionPortThread);
+						//Console.WriteLine($"{workThreads},{completionPortThread}");
+						//Console.WriteLine(Thread.GetDomainID()); 
+					}
+				});
+			}
+			
 
-			Action<Thread> action = (thread) => { thread.IsBackground = true; thread.Start(); };
+			//Action<Thread> action = (thread) => { thread.IsBackground = true; thread.Start(); };
 		}
 	}
 }

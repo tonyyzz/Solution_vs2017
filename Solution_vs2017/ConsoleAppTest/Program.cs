@@ -13,8 +13,8 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new ThreadPoolInfoTest().Do();
-			
+			new BaiduYun().Do();
+			//ClientScript
 			Console.ReadKey(); 
 		}
 	}

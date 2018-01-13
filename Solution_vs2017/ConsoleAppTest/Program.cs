@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new TimerTest().Do();
+			new ThreadPoolInfoTest().Do();
 			
 			Console.ReadKey(); 
 		}

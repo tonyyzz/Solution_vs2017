@@ -69,6 +69,7 @@
     <None Include="packages.config" />
     <Content Include="demo\navpage.html" />
     <Content Include="index.html" />
+    <Content Include="pages\baiduyun.html" />
     <Content Include="pages\bootstrap\bootstrap.html" />
     <Content Include="pages\layui\layui.html" />
     <Content Include="pages\layui\layui_10_util.html" />

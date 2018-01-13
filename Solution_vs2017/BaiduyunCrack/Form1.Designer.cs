@@ -37,8 +37,6 @@
 			this.lblStartTime = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.lblStopTime = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.lblCurTime = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -56,6 +54,7 @@
 			this.tbxBaiduyunAddr.Name = "tbxBaiduyunAddr";
 			this.tbxBaiduyunAddr.Size = new System.Drawing.Size(334, 21);
 			this.tbxBaiduyunAddr.TabIndex = 1;
+			this.tbxBaiduyunAddr.Text = "https://pan.baidu.com/share/init?surl=ggr7GrT";
 			// 
 			// btnStart
 			// 
@@ -70,7 +69,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(28, 204);
+			this.label2.Location = new System.Drawing.Point(30, 231);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(77, 12);
 			this.label2.TabIndex = 3;
@@ -78,7 +77,7 @@
 			// 
 			// tbxUltimatelyPwd
 			// 
-			this.tbxUltimatelyPwd.Location = new System.Drawing.Point(111, 201);
+			this.tbxUltimatelyPwd.Location = new System.Drawing.Point(149, 228);
 			this.tbxUltimatelyPwd.Name = "tbxUltimatelyPwd";
 			this.tbxUltimatelyPwd.ReadOnly = true;
 			this.tbxUltimatelyPwd.Size = new System.Drawing.Size(100, 21);
@@ -106,7 +105,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(230, 140);
+			this.label5.Location = new System.Drawing.Point(257, 140);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(65, 12);
 			this.label5.TabIndex = 5;
@@ -115,38 +114,18 @@
 			// lblStopTime
 			// 
 			this.lblStopTime.AutoSize = true;
-			this.lblStopTime.Location = new System.Drawing.Point(314, 140);
+			this.lblStopTime.Location = new System.Drawing.Point(342, 140);
 			this.lblStopTime.Name = "lblStopTime";
 			this.lblStopTime.Size = new System.Drawing.Size(41, 12);
 			this.lblStopTime.TabIndex = 6;
 			this.lblStopTime.Text = "label4";
 			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(30, 170);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(65, 12);
-			this.label4.TabIndex = 7;
-			this.label4.Text = "当前时间：";
-			// 
-			// lblCurTime
-			// 
-			this.lblCurTime.AutoSize = true;
-			this.lblCurTime.Location = new System.Drawing.Point(111, 170);
-			this.lblCurTime.Name = "lblCurTime";
-			this.lblCurTime.Size = new System.Drawing.Size(41, 12);
-			this.lblCurTime.TabIndex = 6;
-			this.lblCurTime.Text = "label4";
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(494, 290);
-			this.Controls.Add(this.label4);
+			this.ClientSize = new System.Drawing.Size(603, 279);
 			this.Controls.Add(this.lblStopTime);
-			this.Controls.Add(this.lblCurTime);
 			this.Controls.Add(this.lblStartTime);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label3);
@@ -174,8 +153,6 @@
 		private System.Windows.Forms.Label lblStartTime;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label lblStopTime;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label lblCurTime;
 	}
 }
 

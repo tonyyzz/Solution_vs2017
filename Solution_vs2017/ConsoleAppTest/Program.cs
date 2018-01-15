@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new BaiduYun().Do();
+			new PathDirectoryTest().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

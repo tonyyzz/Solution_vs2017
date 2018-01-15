@@ -59,7 +59,7 @@ namespace BaiduyunCrack
 			int threadCount = 100; //线程数
 
 			//找到对应的 baiduyunLink.json文件
-			//WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+			WriteUsedPwdToFile(baiduyunLink, usedPwdList);
 
 			//所有密码列表生成
 			var allPwdList = GetAllPwdList();
@@ -164,13 +164,18 @@ namespace BaiduyunCrack
 		private void WriteUsedPwdToFile(string baiduyunLink, List<string> usedPwdList)
 		{
 			string writeStr = usedPwdList.SerializeObject();
-			//int len = Encoding.UTF8.GetBytes(writeStr).Count();
-			//using (FileStream file = File.Create($"jsonfile/{baiduyunLink}.json",len,FileOptions.))
-
+			
 			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
-			if(!Directory.Exists(Path.GetFullPath(path)))
+			var dirctoryName = Path.GetDirectoryName(path);
+			if (!Directory.Exists(dirctoryName))
 			{
 				Directory.CreateDirectory(Path.GetFullPath(path));
+			}
+			//File.Create(path,)
+			using(FileStream fs = new FileStream(path, FileMode.Create))
+			{
+				var buffer = Encoding.UTF8.GetBytes(writeStr);
+				fs.Write(buffer,0,buffer.Count());
 			}
 			File.WriteAllText(path, writeStr);
 		}

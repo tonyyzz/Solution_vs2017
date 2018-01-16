@@ -86,6 +86,7 @@
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
     <Compile Include="tsqlTest\TsqlTest.cs" />
     <Compile Include="_Helper\DateTimeHelper.cs" />
+    <Compile Include="_Helper\FileHelper.cs" />
     <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

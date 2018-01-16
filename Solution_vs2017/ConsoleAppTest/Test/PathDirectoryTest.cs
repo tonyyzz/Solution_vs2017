@@ -19,7 +19,9 @@ namespace ConsoleAppTest.Test
 			var chs = Path.GetInvalidPathChars();
 			var randomName = Path.GetRandomFileName();
 			var tempFileName = Path.GetTempFileName();
-			var strList = Directory.EnumerateFiles(@"C:\Users\Administrator\Desktop\fileTest\test.txt");
+			//var strList = Directory.EnumerateFiles(@"C:\Users\Administrator\Desktop\fileTest\test.txt");
+			//Directory.CreateDirectory(path);
+			FileHelper.Write(path, "Hello world!!!", Encoding.UTF8);
 		}
 	}
 }

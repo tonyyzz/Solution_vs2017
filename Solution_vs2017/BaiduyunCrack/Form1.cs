@@ -21,7 +21,7 @@ namespace BaiduyunCrack
 		private static string baiduyunLink = "";
 		private static string logid = "";
 		private static DateTime startTime = DateTime.Now;
-		private static List<string> usedPwdList = new List<string>() { "asdf"};
+		private static List<string> usedPwdList = new List<string>();
 		private static int exceptionCount = 0;
 
 		private static double waitTimeSeconds = 60;//(单位：秒)
@@ -64,6 +64,7 @@ namespace BaiduyunCrack
 			//所有密码列表生成
 			var allPwdList = GetAllPwdList();
 
+			Wait();
 
 			FindIt(allPwdList, threadCount);
 
@@ -72,6 +73,9 @@ namespace BaiduyunCrack
 
 		}
 
+		/// <summary>
+		/// 检索等待
+		/// </summary>
 		private void Wait()
 		{
 			ThreadPool.QueueUserWorkItem(o =>
@@ -79,6 +83,11 @@ namespace BaiduyunCrack
 				while (true)
 				{
 					Thread.Sleep(1);
+					if (isFind)
+					{
+						Thread.Sleep(500);
+						continue;
+					}
 					if (!isHasException) //如果没有异常，跳过
 					{
 						Thread.Sleep(500);
@@ -133,7 +142,6 @@ namespace BaiduyunCrack
 
 							//将用过的pwd存入文件
 							WriteUsedPwdToFile(baiduyunLink, usedPwdList);
-
 							return;
 						}
 						Debug.WriteLine(result);
@@ -143,6 +151,11 @@ namespace BaiduyunCrack
 							isFind = true;
 							thePwd = pwd;
 							Debug.WriteLine("找到了");
+							var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
+							if (File.Exists(path))
+							{
+								File.Delete(path);
+							}
 							BeginInvoke(new Action(() =>
 							{
 								var stopTime = DateTime.Now;
@@ -164,20 +177,14 @@ namespace BaiduyunCrack
 		private void WriteUsedPwdToFile(string baiduyunLink, List<string> usedPwdList)
 		{
 			string writeStr = usedPwdList.SerializeObject();
-			
+
 			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 			var dirctoryName = Path.GetDirectoryName(path);
 			if (!Directory.Exists(dirctoryName))
 			{
-				Directory.CreateDirectory(Path.GetFullPath(path));
+				Directory.CreateDirectory(dirctoryName);
 			}
-			//File.Create(path,)
-			using(FileStream fs = new FileStream(path, FileMode.Create))
-			{
-				var buffer = Encoding.UTF8.GetBytes(writeStr);
-				fs.Write(buffer,0,buffer.Count());
-			}
-			File.WriteAllText(path, writeStr);
+			FileHelper.Write(path, writeStr, Encoding.UTF8);
 		}
 
 		private List<string> GetAllPwdList()

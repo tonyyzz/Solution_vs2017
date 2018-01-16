@@ -61,6 +61,14 @@ namespace BaiduyunCrack
 				tbxBaiduyunAddr.Focus();
 				return;
 			}
+
+			//地址转换
+			if (!baiduyunLink.Contains("?"))
+			{
+				var chs = baiduyunLink.Split('/');
+				baiduyunLink = "https://pan.baidu.com/share/init?surl=" + chs[chs.Count()-1].Substring(1);
+			}
+
 			btnStart.Text = "执行中...";
 			btnStart.Enabled = false;
 			tbxUltimatelyPwd.Enabled = false;

@@ -338,8 +338,8 @@ namespace BaiduyunCrack
 
 		public static string GetCodes()
 		{
-			//return "0123456789abcdefghijklmnopqrstuvwxyz";
-			return "qr6z";
+			return "0123456789abcdefghijklmnopqrstuvwxyz";
+			//return "qr6z";
 		}
 		/// <summary>
 		/// 是否在范围内，左闭右开 [,)

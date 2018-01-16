@@ -22,6 +22,7 @@ namespace BaiduyunCrack
 		private static string logid = "";
 		private static DateTime startTime = DateTime.Now;
 		private static List<string> usedPwdList = new List<string>();
+		private static List<string> restPwdList = new List<string>();
 		private static int exceptionCount = 0;
 
 		private static bool waitThreadRunning = false;
@@ -89,7 +90,7 @@ namespace BaiduyunCrack
 			allPwdList = GetAllPwdList();//所有密码列表生成
 			path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 
-			List<string> restPwdList = new List<string>();
+
 
 			if (File.Exists(path))
 			{
@@ -135,8 +136,8 @@ namespace BaiduyunCrack
 							continue;
 						}
 						//读取文本文件
-						var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
-						var leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
+						usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
+						restPwdList = allPwdList.Except(usedPwdList).ToList();
 						isHasException = false;
 						waitThreadRunning = false;
 						if (waitTimeSeconds < 500)
@@ -147,7 +148,7 @@ namespace BaiduyunCrack
 								waitTimeSeconds = 500;
 							}
 						}
-						FindIt(leftPwdList, threadCount);
+						FindIt(restPwdList, threadCount);
 						return;
 					}
 					else

@@ -176,6 +176,10 @@ namespace BaiduyunCrack
 						{
 							return;
 						}
+						if (waitThreadRunning)
+						{
+							return;
+						}
 						BeginInvoke(new Action(() =>
 						{
 							tbxUltimatelyPwd.Text = pwd;

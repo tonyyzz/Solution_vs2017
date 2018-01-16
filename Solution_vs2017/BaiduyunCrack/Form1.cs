@@ -24,7 +24,10 @@ namespace BaiduyunCrack
 		private static List<string> usedPwdList = new List<string>();
 		private static int exceptionCount = 0;
 
-		private static double waitTimeSeconds = 60;//(单位：秒)
+		private static List<string> allPwdList = new List<string>();
+		private static int threadCount = 1;
+
+		private static double waitTimeSeconds = 5;//(单位：秒)
 		private static DateTime lastHasExceptionTime = DateTime.Now;
 		public Form1()
 		{
@@ -38,6 +41,9 @@ namespace BaiduyunCrack
 			lblStopTime.Text = "";
 			tbxUltimatelyPwd.Text = "";
 			lblTotalSeconds.Text = "";
+			lblStateStr.Text = "";
+			lblExceptionCount.Text = exceptionCount.ToString();
+			tbxUltimatelyPwd.Enabled = false;
 			//异常情况，远程服务器直接挂掉，分享接口挂掉，404，不怪我
 		}
 
@@ -51,22 +57,37 @@ namespace BaiduyunCrack
 				tbxBaiduyunAddr.Focus();
 				return;
 			}
+			btnStart.Text = "执行中...";
+			btnStart.Enabled = false;
+			tbxUltimatelyPwd.Enabled = false;
+			tbxBaiduyunAddr.Enabled = false;
 
 			startTime = DateTime.Now;
 			lblStartTime.Text = startTime.ToStr();
 
 			var logid = getLogid(baiduyunLink);
-			int threadCount = 100; //线程数
+			threadCount = 100; //线程数
+			allPwdList = GetAllPwdList();//所有密码列表生成
+
+			List<string> leftPwdList = new List<string>();
 
 			//找到对应的 baiduyunLink.json文件
-			WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+			//WriteUsedPwdToFile(baiduyunLink, usedPwdList);
 
-			//所有密码列表生成
-			var allPwdList = GetAllPwdList();
+			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
+			if (File.Exists(path))
+			{
+				var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
+				leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
+			}
+			else
+			{
+				leftPwdList = allPwdList;
+			}
 
-			Wait();
 
-			FindIt(allPwdList, threadCount);
+
+			FindIt(leftPwdList, threadCount);
 
 
 
@@ -83,18 +104,37 @@ namespace BaiduyunCrack
 				while (true)
 				{
 					Thread.Sleep(1);
-					if (isFind)
+					if (isHasException)
+					{
+						//如果有异常，则执行等待，并等倒计时结束后，继续用剩下未用过的密码进行破解
+						var timeSpan = DateTime.Now - lastHasExceptionTime;
+						if (timeSpan.TotalSeconds < waitTimeSeconds)
+						{
+							Thread.Sleep(500);
+							var leftSeconds = Convert.ToInt32(waitTimeSeconds - timeSpan.TotalSeconds);
+							BeginInvoke(new Action(() =>
+							{
+								lblStateStr.Text = $"状态：正处于异常状态，{leftSeconds}秒后继续破解！";
+								tbxUltimatelyPwd.Text = "";
+							}));
+							continue;
+						}
+						//读取文本文件
+						var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
+						var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
+						var leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
+						FindIt(leftPwdList, threadCount);
+						isHasException = false;
+						if (waitTimeSeconds < 1000)
+						{
+							waitTimeSeconds = waitTimeSeconds * 2;
+						}
+						return;
+					}
+					else
 					{
 						Thread.Sleep(500);
-						continue;
 					}
-					if (!isHasException) //如果没有异常，跳过
-					{
-						Thread.Sleep(500);
-						continue;
-					}
-					//如果有异常，则执行等待，并等倒计时结束后，继续用剩下未用过的密码进行破解
-
 				}
 			});
 
@@ -125,6 +165,7 @@ namespace BaiduyunCrack
 						BeginInvoke(new Action(() =>
 						{
 							tbxUltimatelyPwd.Text = pwd;
+							lblStateStr.Text = $"状态：破解中...";
 						}));
 						Debug.WriteLine(pwd);
 						string result = "";
@@ -135,13 +176,21 @@ namespace BaiduyunCrack
 						catch (Exception)
 						{
 							isHasException = true;
-							Debug.WriteLine("出现异常了");
 							exceptionCount++;
-							usedPwdList.Add(pwd);
 							lastHasExceptionTime = DateTime.Now;
-
+							BeginInvoke(new Action(() =>
+							{
+								lblExceptionCount.Text = exceptionCount.ToString();
+							}));
+							Wait();
 							//将用过的pwd存入文件
-							WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+							try
+							{
+								WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+							}
+							catch (Exception exp)
+							{
+							}
 							return;
 						}
 						Debug.WriteLine(result);
@@ -162,6 +211,11 @@ namespace BaiduyunCrack
 								lblStopTime.Text = stopTime.ToStr();
 								lblTotalSeconds.Text = (stopTime - startTime).TotalSeconds.ToString("0.00") + " s";
 								tbxUltimatelyPwd.Text = thePwd;
+								tbxUltimatelyPwd.Enabled = true;
+								lblStateStr.Text = $"状态：破解完成！";
+								btnStart.Text = "开始";
+								btnStart.Enabled = true;
+								tbxBaiduyunAddr.Enabled = true;
 							}));
 							return;
 						}
@@ -272,7 +326,7 @@ namespace BaiduyunCrack
 		public static string GetCodes()
 		{
 			//return "0123456789abcdefghijklmnopqrstuvwxyz";
-			return "mrvp";
+			return "mrvpabcdefg";
 		}
 		/// <summary>
 		/// 是否在范围内，左闭右开 [,)

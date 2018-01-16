@@ -24,7 +24,7 @@ namespace BaiduyunCrack
 		private static List<string> usedPwdList = new List<string>();
 		private static int exceptionCount = 0;
 
-		private static int waitThreadCount = 0;
+		private static bool waitThreadRunning = false;
 
 		private static string path = "";
 
@@ -67,7 +67,7 @@ namespace BaiduyunCrack
 			if (!baiduyunLink.Contains("?"))
 			{
 				var chs = baiduyunLink.Split('/');
-				baiduyunLink = "https://pan.baidu.com/share/init?surl=" + chs[chs.Count()-1].Substring(1);
+				baiduyunLink = "https://pan.baidu.com/share/init?surl=" + chs[chs.Count() - 1].Substring(1);
 			}
 
 			btnStart.Text = "执行中...";
@@ -78,7 +78,7 @@ namespace BaiduyunCrack
 			lblTotalSeconds.Text = "";
 
 			exceptionCount = 0;
-			waitThreadCount = 0;
+			waitThreadRunning = false;
 			isFind = false;
 			isHasException = false;
 			startTime = DateTime.Now;
@@ -111,8 +111,8 @@ namespace BaiduyunCrack
 		{
 			ThreadPool.QueueUserWorkItem(o =>
 			{
-				waitThreadCount++;
-				if (waitThreadCount > 1)
+
+				if (!waitThreadRunning)
 				{
 					return;
 				}
@@ -195,7 +195,7 @@ namespace BaiduyunCrack
 							{
 								lblExceptionCount.Text = exceptionCount.ToString();
 							}));
-							waitThreadCount = 0;
+							waitThreadRunning = true;
 							Wait();
 							//将用过的pwd存入文件
 							try

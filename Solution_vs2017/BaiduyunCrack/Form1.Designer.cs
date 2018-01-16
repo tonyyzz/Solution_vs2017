@@ -57,7 +57,7 @@
 			// 
 			this.tbxBaiduyunAddr.Location = new System.Drawing.Point(113, 27);
 			this.tbxBaiduyunAddr.Name = "tbxBaiduyunAddr";
-			this.tbxBaiduyunAddr.Size = new System.Drawing.Size(353, 21);
+			this.tbxBaiduyunAddr.Size = new System.Drawing.Size(361, 21);
 			this.tbxBaiduyunAddr.TabIndex = 1;
 			this.tbxBaiduyunAddr.Text = "https://pan.baidu.com/share/init?surl=ggr7GrT";
 			// 
@@ -177,7 +177,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(497, 291);
+			this.ClientSize = new System.Drawing.Size(512, 291);
 			this.Controls.Add(this.lblExceptionCount);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.lblStateStr);

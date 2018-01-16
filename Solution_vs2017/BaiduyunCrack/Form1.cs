@@ -26,6 +26,8 @@ namespace BaiduyunCrack
 
 		private static int waitThreadCount = 0;
 
+		private static string path = "";
+
 		private static List<string> allPwdList = new List<string>();
 		private static int threadCount = 1;
 
@@ -67,16 +69,13 @@ namespace BaiduyunCrack
 			startTime = DateTime.Now;
 			lblStartTime.Text = startTime.ToStr();
 
-			var logid = getLogid(baiduyunLink);
+			logid = getLogid(baiduyunLink);
 			threadCount = 100; //线程数
 			allPwdList = GetAllPwdList();//所有密码列表生成
+			path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 
 			List<string> leftPwdList = new List<string>();
 
-			//找到对应的 baiduyunLink.json文件
-			//WriteUsedPwdToFile(baiduyunLink, usedPwdList);
-
-			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 			if (File.Exists(path))
 			{
 				usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
@@ -87,13 +86,7 @@ namespace BaiduyunCrack
 				leftPwdList = allPwdList;
 			}
 
-
-
 			FindIt(leftPwdList, threadCount);
-
-
-
-
 		}
 
 		/// <summary>
@@ -127,7 +120,6 @@ namespace BaiduyunCrack
 							continue;
 						}
 						//读取文本文件
-						var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 						var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
 						var leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
 						FindIt(leftPwdList, threadCount);
@@ -174,7 +166,6 @@ namespace BaiduyunCrack
 							tbxUltimatelyPwd.Text = pwd;
 							lblStateStr.Text = $"状态：破解中...";
 						}));
-						Debug.WriteLine(pwd);
 						string result = "";
 						try
 						{
@@ -201,13 +192,12 @@ namespace BaiduyunCrack
 							}
 							return;
 						}
-						Debug.WriteLine(result);
 						var rObj = result.DeserializeObject<BaiduYunResult>();
 						if (rObj.errno == 0)
 						{
+							//找到了
 							isFind = true;
 							thePwd = pwd;
-							Debug.WriteLine("找到了");
 							BeginInvoke(new Action(() =>
 							{
 								var stopTime = DateTime.Now;
@@ -234,8 +224,6 @@ namespace BaiduyunCrack
 		private void WriteUsedPwdToFile(string baiduyunLink, List<string> usedPwdList)
 		{
 			string writeStr = usedPwdList.SerializeObject();
-
-			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 			var dirctoryName = Path.GetDirectoryName(path);
 			if (!Directory.Exists(dirctoryName))
 			{
@@ -416,7 +404,6 @@ namespace BaiduyunCrack
 
 		string getResult(string baiduyunLink, string pwd)
 		{
-
 			string surl = baiduyunLink.Split('?')[1].Split('=')[1];
 			string postUrl = "https://pan.baidu.com/share/verify";
 			string postParamstr = $"{baiduyunLink.Split('?')[1]}&t={getTime()}" +

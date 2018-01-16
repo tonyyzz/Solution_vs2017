@@ -24,6 +24,8 @@ namespace BaiduyunCrack
 		private static List<string> usedPwdList = new List<string>();
 		private static int exceptionCount = 0;
 
+		private static int waitThreadCount = 0;
+
 		private static List<string> allPwdList = new List<string>();
 		private static int threadCount = 1;
 
@@ -101,6 +103,11 @@ namespace BaiduyunCrack
 		{
 			ThreadPool.QueueUserWorkItem(o =>
 			{
+				waitThreadCount++;
+				if (waitThreadCount > 1)
+				{
+					return;
+				}
 				while (true)
 				{
 					Thread.Sleep(1);
@@ -182,6 +189,7 @@ namespace BaiduyunCrack
 							{
 								lblExceptionCount.Text = exceptionCount.ToString();
 							}));
+							waitThreadCount = 0;
 							Wait();
 							//将用过的pwd存入文件
 							try

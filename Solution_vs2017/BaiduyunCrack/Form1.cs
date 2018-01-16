@@ -121,7 +121,7 @@ namespace BaiduyunCrack
 							var leftSeconds = Convert.ToInt32(waitTimeSeconds - timeSpan.TotalSeconds);
 							BeginInvoke(new Action(() =>
 							{
-								lblStateStr.Text = $"状态：百度接口正处于异常状态，{leftSeconds}秒后继续尝试破解！";
+								lblStateStr.Text = $"状态：百度接口正处于异常状态，【{leftSeconds}】秒后继续尝试破解！";
 								tbxUltimatelyPwd.Text = "";
 							}));
 							continue;

@@ -61,6 +61,7 @@ namespace BaiduyunCrack
 				tbxBaiduyunAddr.Focus();
 				return;
 			}
+			baiduyunLink = baiduyunLink.Trim();
 
 			//地址转换
 			if (!baiduyunLink.Contains("?"))

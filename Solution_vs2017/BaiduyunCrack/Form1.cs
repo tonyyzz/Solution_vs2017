@@ -66,6 +66,10 @@ namespace BaiduyunCrack
 			tbxUltimatelyPwd.Enabled = false;
 			tbxBaiduyunAddr.Enabled = false;
 
+			exceptionCount = 0;
+			waitThreadCount = 0;
+			isFind = false;
+			isHasException = false;
 			startTime = DateTime.Now;
 			lblStartTime.Text = startTime.ToStr();
 
@@ -198,6 +202,13 @@ namespace BaiduyunCrack
 							//找到了
 							isFind = true;
 							thePwd = pwd;
+							try
+							{
+								WriteUsedPwdToFile(baiduyunLink, usedPwdList);
+							}
+							catch (Exception)
+							{
+							}
 							BeginInvoke(new Action(() =>
 							{
 								var stopTime = DateTime.Now;

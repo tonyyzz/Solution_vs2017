@@ -74,19 +74,19 @@ namespace BaiduyunCrack
 			allPwdList = GetAllPwdList();//所有密码列表生成
 			path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 
-			List<string> leftPwdList = new List<string>();
+			List<string> restPwdList = new List<string>();
 
 			if (File.Exists(path))
 			{
 				usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
-				leftPwdList = allPwdList.Except(usedPwdList).ToList();
+				restPwdList = allPwdList.Except(usedPwdList).ToList();
 			}
 			else
 			{
-				leftPwdList = allPwdList;
+				restPwdList = allPwdList;
 			}
 
-			FindIt(leftPwdList, threadCount);
+			FindIt(restPwdList, threadCount);
 		}
 
 		/// <summary>
@@ -187,7 +187,7 @@ namespace BaiduyunCrack
 							{
 								WriteUsedPwdToFile(baiduyunLink, usedPwdList);
 							}
-							catch (Exception exp)
+							catch (Exception)
 							{
 							}
 							return;

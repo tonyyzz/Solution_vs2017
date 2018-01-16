@@ -213,6 +213,7 @@ namespace BaiduyunCrack
 							//找到了
 							isFind = true;
 							thePwd = pwd;
+							waitThreadRunning = false;
 							try
 							{
 								WriteUsedPwdToFile(baiduyunLink, usedPwdList);

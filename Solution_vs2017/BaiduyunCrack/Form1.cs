@@ -79,8 +79,8 @@ namespace BaiduyunCrack
 			var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
 			if (File.Exists(path))
 			{
-				var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
-				leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
+				usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
+				leftPwdList = allPwdList.Except(usedPwdList).ToList();
 			}
 			else
 			{

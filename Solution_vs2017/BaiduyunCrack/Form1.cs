@@ -65,6 +65,8 @@ namespace BaiduyunCrack
 			btnStart.Enabled = false;
 			tbxUltimatelyPwd.Enabled = false;
 			tbxBaiduyunAddr.Enabled = false;
+			lblStopTime.Text = "";
+			lblTotalSeconds.Text = "";
 
 			exceptionCount = 0;
 			waitThreadCount = 0;

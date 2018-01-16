@@ -137,12 +137,17 @@ namespace BaiduyunCrack
 						//读取文本文件
 						var usedPwdListStr = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
 						var leftPwdList = allPwdList.Except(usedPwdListStr).ToList();
-						FindIt(leftPwdList, threadCount);
 						isHasException = false;
+						waitThreadRunning = false;
 						if (waitTimeSeconds < 500)
 						{
 							waitTimeSeconds = waitTimeSeconds * 2;
+							if (waitTimeSeconds > 500)
+							{
+								waitTimeSeconds = 500;
+							}
 						}
+						FindIt(leftPwdList, threadCount);
 						return;
 					}
 					else

@@ -208,11 +208,6 @@ namespace BaiduyunCrack
 							isFind = true;
 							thePwd = pwd;
 							Debug.WriteLine("找到了");
-							var path = Path.Combine(Environment.CurrentDirectory, "jsonfile\\" + baiduyunLink.Split('?')[1].Split('=')[1] + ".txt");
-							if (File.Exists(path))
-							{
-								File.Delete(path);
-							}
 							BeginInvoke(new Action(() =>
 							{
 								var stopTime = DateTime.Now;

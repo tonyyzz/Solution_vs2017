@@ -59,7 +59,7 @@
 			this.tbxBaiduyunAddr.Name = "tbxBaiduyunAddr";
 			this.tbxBaiduyunAddr.Size = new System.Drawing.Size(361, 21);
 			this.tbxBaiduyunAddr.TabIndex = 1;
-			this.tbxBaiduyunAddr.Text = "https://pan.baidu.com/share/init?surl=ggr7GrT";
+			this.tbxBaiduyunAddr.Text = "https://pan.baidu.com/s/1kXeiAnt";
 			// 
 			// btnStart
 			// 

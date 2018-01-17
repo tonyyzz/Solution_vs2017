@@ -373,14 +373,7 @@ namespace BaiduyunCrack
 
 		string getBaiduUId(string url)
 		{
-			var f = CookieReader.GetCookie(url);
-			var a1 = f.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-			Dictionary<string, string> dict = new Dictionary<string, string>();
-			foreach (var aItem in a1)
-			{
-				dict.Add(aItem.Split('=')[0], aItem.Split('=')[1]);
-			}
-			return dict.FirstOrDefault(m => m.Key == "BAIDUID").Value + "=1";
+			return CookieReader.GetCookie(url, "BAIDUID");
 		}
 
 		public static string SendDataByGET(string Url, string surl, string postDataStr, string formParamStrs, ref CookieContainer cookie)

@@ -1,21 +1,19 @@
-﻿using ConsoleAppTest.Test;
+﻿using AHelperTest.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppTest
+namespace AHelperTest
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine($"测试中...");
-
-			new CookieTest().Do();
-			//ClientScript
-			Console.ReadKey(); 
+			Console.WriteLine("启动...");
+			new StringHelperTest().Do();
+			Console.ReadKey();
 		}
 	}
 }

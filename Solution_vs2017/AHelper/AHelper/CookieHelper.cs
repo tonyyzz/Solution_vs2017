@@ -7,19 +7,8 @@ using System.Threading.Tasks;
 
 namespace System
 {
-	class CookieReader
+	class CookieHelper
 	{
-		private const int INTERNET_COOKIE_HTTPONLY = 0x00002000;
-
-		[DllImport("wininet.dll", SetLastError = true)]
-		private static extern bool InternetGetCookieEx(
-			string url,
-			string cookieName,
-			StringBuilder cookieData,
-			ref int size,
-			int flags,
-			IntPtr pReserved);
-
 		/// <summary>
 		/// 获取url的指定cookie键的值。如果该cookie键不存在，则返回空字符串
 		/// </summary>
@@ -67,6 +56,17 @@ namespace System
 			return dict;
 		}
 
+		#region DllImport
+		private const int INTERNET_COOKIE_HTTPONLY = 0x00002000;
 
+		[DllImport("wininet.dll", SetLastError = true)]
+		private static extern bool InternetGetCookieEx(
+			string url,
+			string cookieName,
+			StringBuilder cookieData,
+			ref int size,
+			int flags,
+			IntPtr pReserved);
+		#endregion
 	}
 }

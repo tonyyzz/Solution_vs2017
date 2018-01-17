@@ -2,12 +2,12 @@
 using System.IO;
 using System.Net;
 
-namespace System
+namespace Auction.Utility.Utils
 {
     public  class ResponseUtils
     {
         #region post请求
-        public static string GetContent(string url, string paramStrs)
+        public static string GetContent(string url, string str)
         {
             Uri uri = new Uri(url);
             try
@@ -16,7 +16,7 @@ namespace System
                 request.Method = "post";
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.Headers.Add("Access-Control-Allow-Origin:*");
-                string reqdata = paramStrs;
+                string reqdata = str;
                 byte[] buf = System.Text.Encoding.UTF8.GetBytes(reqdata);
                 System.IO.Stream s = request.GetRequestStream();
                 s.Write(buf, 0, buf.Length);

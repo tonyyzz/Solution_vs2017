@@ -11,7 +11,7 @@ namespace AHelperTest
 		static void Main(string[] args)
 		{
 			Console.WriteLine("启动...");
-			new IPAddressHelperTest().Do();
+			new ExpressHelperTest().Do();
 			Console.ReadKey();
 		}
 	}

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System
 {
-	class CookieHelper
+	public class CookieHelper
 	{
 		/// <summary>
 		/// 获取url的指定cookie键的值。如果该cookie键不存在，则返回空字符串

@@ -13,23 +13,12 @@ namespace ConsoleAppTest.Test
 	{
 		public void Do()
 		{
-			//ThreadPool.QueueUserWorkItem(o => {
-			//	while (true)
-			//	{
-			//		Thread.Sleep(100);
-			//		var logid = getLogid();
-			//		Console.WriteLine(logid);
-			//	}
-			//});
-
-
-
-
+			
 			string baiduyunLink = "https://pan.baidu.com/share/init?surl=kXeiAnt";
 			string pwd = "qr6z";
 			var result = getResult(baiduyunLink, pwd);
 
-			var rObj = result.DeserializeObject<BaiduYunResult>();
+			var rObj = result.JsonDeserialize<BaiduYunResult>();
 			if (rObj.errno == 0)
 			{
 				Console.WriteLine($"破解成功，密码为：{pwd}");
@@ -42,7 +31,7 @@ namespace ConsoleAppTest.Test
 
 		string getBaiduUId(string url)
 		{
-			return CookieReader.GetCookie(url, "BAIDUID");
+			return CookieHelper.GetCookie(url, "BAIDUID");
 		}
 
 		public static string SendDataByGET(string Url, string surl, string postDataStr, string formParamStrs, ref CookieContainer cookie)

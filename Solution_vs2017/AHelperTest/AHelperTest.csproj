@@ -42,9 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateTimeHelperTest.cs" />
-    <Compile Include="EnumHelperTest.cs" />
-    <Compile Include="IPAddressHelperTest.cs" />
+    <Compile Include="Test\DateTimeHelperTest.cs" />
+    <Compile Include="Test\EnumHelperTest.cs" />
+    <Compile Include="Test\ExpressHelperTest.cs" />
+    <Compile Include="Test\IPAddressHelperTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

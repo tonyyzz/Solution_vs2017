@@ -85,10 +85,6 @@
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
     <Compile Include="tsqlTest\TsqlTest.cs" />
-    <Compile Include="_Helper\CookieReader.cs" />
-    <Compile Include="_Helper\DateTimeHelper.cs" />
-    <Compile Include="_Helper\FileHelper.cs" />
-    <Compile Include="_Helper\ObjectHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\DecimalTest.cs" />
@@ -99,7 +95,6 @@
     <Compile Include="Test\ThreadPoolTest.cs" />
     <Compile Include="Test\WhereLiTest.cs" />
     <Compile Include="Test\_GoStopExampleDataTest.cs" />
-    <Compile Include="_Helper\ResponseUtils.cs" />
     <Compile Include="_SingletonT\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +123,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AHelper\AHelper.csproj">
+      <Project>{08b344a0-d71b-4a91-9729-826471dea45f}</Project>
+      <Name>AHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

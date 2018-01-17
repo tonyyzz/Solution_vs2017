@@ -10,7 +10,7 @@ namespace ConsoleAppTest.Test
 	{
 		public void Do()
 		{
-			var cookieVal = CookieReader.GetCookie("https://pan.baidu.com/share/init?surl=ggr7GrT", "BAIDUID");
+			var cookieVal = CookieHelper.GetCookie("https://pan.baidu.com/share/init?surl=ggr7GrT", "BAIDUID");
 			
 		}
 	}

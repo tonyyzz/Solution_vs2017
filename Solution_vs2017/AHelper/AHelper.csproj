@@ -54,6 +54,7 @@
     <Compile Include="AHelper\CookieHelper.cs" />
     <Compile Include="AHelper\DateTimeHelper.cs" />
     <Compile Include="AHelper\EnumHelper.cs" />
+    <Compile Include="AHelper\StringHelper.cs" />
     <Compile Include="Extentions\Base64StringExtention.cs" />
     <Compile Include="Extentions\ConvertExtention.cs" />
     <Compile Include="Extentions\LinqExtention.cs" />

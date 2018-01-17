@@ -20,23 +20,40 @@ namespace ConsoleAppTest.Test
 			ref int size,
 			int flags,
 			IntPtr pReserved);
-		public static string GetCookie(string url)
+		public static Dictionary<string, string> GetCookies(string url)
 		{
+			Dictionary<string, string> dict = new Dictionary<string, string>();
 			int size = 5120;
 			StringBuilder sb = new StringBuilder(size);
 			if (!InternetGetCookieEx(url, null, sb, ref size, INTERNET_COOKIE_HTTPONLY, IntPtr.Zero))
 			{
 				if (size < 0)
 				{
-					return null;
+					return dict;
 				}
 				sb = new StringBuilder(size);
 				if (!InternetGetCookieEx(url, null, sb, ref size, INTERNET_COOKIE_HTTPONLY, IntPtr.Zero))
 				{
-					return null;
+					return dict;
 				}
 			}
-			return sb.ToString();
+			var chs = sb.ToString().Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+			foreach (var ch in chs)
+			{
+				var eqIndex = ch.IndexOf("=");
+				dict.Add(ch.Substring(0, eqIndex), ch.Substring(eqIndex + 1));
+			}
+			return dict;
+		}
+
+		public static string GetCookie(string url, string cookieKey)
+		{
+			var val = GetCookies(url).FirstOrDefault(kvPair => kvPair.Key == cookieKey).Value;
+			if (string.IsNullOrWhiteSpace(val))
+			{
+				val = "";
+			}
+			return val;
 		}
 	}
 }

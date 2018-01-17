@@ -13,7 +13,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new PathDirectoryTest().Do();
+			new CookieTest().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

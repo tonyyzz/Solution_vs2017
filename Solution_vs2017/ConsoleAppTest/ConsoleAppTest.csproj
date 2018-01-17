@@ -74,6 +74,7 @@
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />
     <Compile Include="Test\CookieReader.cs" />
+    <Compile Include="Test\CookieTest.cs" />
     <Compile Include="Test\PathDirectoryTest.cs" />
     <Compile Include="Test\RandomListTest.cs" />
     <Compile Include="Test\ThreadPoolInfoTest.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInherit.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolInheritTest.cs" />
     <Compile Include="tsqlTest\TsqlTest.cs" />
+    <Compile Include="_Helper\CookieReader.cs" />
     <Compile Include="_Helper\DateTimeHelper.cs" />
     <Compile Include="_Helper\FileHelper.cs" />
     <Compile Include="_Helper\ObjectHelper.cs" />

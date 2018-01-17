@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiduyunCrack", "BaiduyunCrack\BaiduyunCrack.csproj", "{3A9875EF-46A0-4140-8A51-FB19933252FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHelper", "AHelper\AHelper.csproj", "{08B344A0-D71B-4A91-9729-826471DEA45F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHelperTest", "AHelperTest\AHelperTest.csproj", "{BE49CAE3-0295-4280-92CC-07881FD142DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3A9875EF-46A0-4140-8A51-FB19933252FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9875EF-46A0-4140-8A51-FB19933252FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9875EF-46A0-4140-8A51-FB19933252FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B344A0-D71B-4A91-9729-826471DEA45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B344A0-D71B-4A91-9729-826471DEA45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B344A0-D71B-4A91-9729-826471DEA45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B344A0-D71B-4A91-9729-826471DEA45F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

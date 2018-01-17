@@ -5,12 +5,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppTest.Test
+namespace System
 {
 	class CookieReader
 	{
 		private const int INTERNET_COOKIE_HTTPONLY = 0x00002000;
-
 
 		[DllImport("wininet.dll", SetLastError = true)]
 		private static extern bool InternetGetCookieEx(
@@ -20,7 +19,29 @@ namespace ConsoleAppTest.Test
 			ref int size,
 			int flags,
 			IntPtr pReserved);
-		public static Dictionary<string, string> GetCookies(string url)
+
+		/// <summary>
+		/// 获取url的指定cookie键的值。如果该cookie键不存在，则返回空字符串
+		/// </summary>
+		/// <param name="url"></param>
+		/// <param name="cookieKey"></param>
+		/// <returns></returns>
+		public static string GetCookie(string url, string cookieKey)
+		{
+			var val = GetCookieDict(url).FirstOrDefault(kvPair => kvPair.Key == cookieKey).Value;
+			if (string.IsNullOrWhiteSpace(val))
+			{
+				val = "";
+			}
+			return val;
+		}
+
+		/// <summary>
+		/// 获取url的所有cookie键值对的结合
+		/// </summary>
+		/// <param name="url"></param>
+		/// <returns></returns>
+		public static Dictionary<string, string> GetCookieDict(string url)
 		{
 			Dictionary<string, string> dict = new Dictionary<string, string>();
 			int size = 5120;
@@ -46,14 +67,6 @@ namespace ConsoleAppTest.Test
 			return dict;
 		}
 
-		public static string GetCookie(string url, string cookieKey)
-		{
-			var val = GetCookies(url).FirstOrDefault(kvPair => kvPair.Key == cookieKey).Value;
-			if (string.IsNullOrWhiteSpace(val))
-			{
-				val = "";
-			}
-			return val;
-		}
+
 	}
 }

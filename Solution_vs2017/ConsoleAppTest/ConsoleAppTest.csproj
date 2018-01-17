@@ -73,7 +73,6 @@
     <Compile Include="Test\BaiduYun.cs" />
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />
-    <Compile Include="Test\CookieReader.cs" />
     <Compile Include="Test\CookieTest.cs" />
     <Compile Include="Test\PathDirectoryTest.cs" />
     <Compile Include="Test\RandomListTest.cs" />

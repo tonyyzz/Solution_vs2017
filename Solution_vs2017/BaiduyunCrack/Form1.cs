@@ -136,7 +136,7 @@ namespace BaiduyunCrack
 							continue;
 						}
 						//读取文本文件
-						usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
+						//usedPwdList = FileHelper.Read(path, Encoding.UTF8).DeserializeObject<List<string>>();
 
 						try
 						{

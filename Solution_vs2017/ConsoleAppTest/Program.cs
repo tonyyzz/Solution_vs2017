@@ -14,7 +14,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new EpplusTest().Do();
+			new CSharpSeven().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

@@ -40,5 +40,13 @@ namespace System
 			}
 			return str;
 		}
+
+		public static void DeleteIfExists(string path)
+		{
+			if (File.Exists(path))
+			{
+				File.Delete(path);
+			}
+		}
 	}
 }

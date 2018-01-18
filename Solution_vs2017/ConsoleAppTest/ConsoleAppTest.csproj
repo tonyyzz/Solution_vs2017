@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Epplus\EpplusTest.cs" />
     <Compile Include="Test\BaiduYun.cs" />
     <Compile Include="Test\CLRTest.cs" />
     <Compile Include="Test\CLSTest.cs" />

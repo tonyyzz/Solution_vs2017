@@ -1,4 +1,5 @@
-﻿using ConsoleAppTest.Test;
+﻿using ConsoleAppTest.Epplus;
+using ConsoleAppTest.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new ExpressTest().Do();
+			new EpplusTest().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

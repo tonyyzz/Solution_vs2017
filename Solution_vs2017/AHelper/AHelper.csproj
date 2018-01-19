@@ -29,6 +29,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Online|AnyCPU'">
+    <OutputPath>bin\Online\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Hashids.net, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hashids.net.1.2.2\lib\net45\Hashids.net.dll</HintPath>
@@ -54,6 +63,10 @@
     <Compile Include="AHelper\CookieHelper.cs" />
     <Compile Include="AHelper\DateTimeHelper.cs" />
     <Compile Include="AHelper\EnumHelper.cs" />
+    <Compile Include="AHelper\FileBinaryConvertHelper.cs" />
+    <Compile Include="AHelper\ListHelper.cs" />
+    <Compile Include="AHelper\ModelHelper.cs" />
+    <Compile Include="AHelper\RandomHelper.cs" />
     <Compile Include="AHelper\StringHelper.cs" />
     <Compile Include="Extentions\Base64StringExtention.cs" />
     <Compile Include="Extentions\ConvertExtention.cs" />

@@ -65,6 +65,7 @@
     <Compile Include="AHelper\EnumHelper.cs" />
     <Compile Include="AHelper\FileBinaryConvertHelper.cs" />
     <Compile Include="AHelper\ListHelper.cs" />
+    <Compile Include="AHelper\LogHelper.cs" />
     <Compile Include="AHelper\StringHelper.cs" />
     <Compile Include="Extentions\Base64StringExtention.cs" />
     <Compile Include="Extentions\ConvertExtention.cs" />

@@ -1,14 +1,14 @@
 ﻿using System;
 using log4net;
 
-namespace Auction.Utility.Utils
+namespace System
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class LogUtils
+	public class LogHelper
 	{
-		private static readonly ILog logger = LogManager.GetLogger(typeof(LogUtils));
+		private static readonly ILog logger = LogManager.GetLogger(typeof(LogHelper));
 
 		/// <summary>
 		/// 

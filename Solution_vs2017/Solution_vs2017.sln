@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHelper", "AHelper\AHelper.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHelperTest", "AHelperTest\AHelperTest.csproj", "{BE49CAE3-0295-4280-92CC-07881FD142DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSBomber", "SMSBomber\SMSBomber.csproj", "{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,12 @@ Global
 		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Online|Any CPU.Build.0 = Online|Any CPU
 		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE49CAE3-0295-4280-92CC-07881FD142DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Online|Any CPU.ActiveCfg = Release|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Online|Any CPU.Build.0 = Release|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

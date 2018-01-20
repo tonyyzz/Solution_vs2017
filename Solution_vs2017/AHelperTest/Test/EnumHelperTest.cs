@@ -11,14 +11,15 @@ namespace AHelperTest
 	{
 		public void Do()
 		{
-			SystemTypeEnum systemTypeEnum = SystemTypeEnum.Android;
-			var result = systemTypeEnum.GetEnumDesxription((int)systemTypeEnum);
+			//SystemTypeEnum systemTypeEnum = SystemTypeEnum.Android;
+			//var result = systemTypeEnum.GetEnumDesxription((int)systemTypeEnum);
+			 var desc= SystemTypeEnum.Android.GetEnumDesxriptionDict();
 		}
 		enum SystemTypeEnum
 		{
 			[Description("电脑")]
 			PC = 1,
-			[Description("安卓")]
+			//[Description("安卓")]
 			Android,
 			[Description("苹果")]
 			IOS,

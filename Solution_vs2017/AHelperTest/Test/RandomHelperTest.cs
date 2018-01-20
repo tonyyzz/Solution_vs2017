@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AHelperTest
+namespace AHelperTest.Test
 {
-	class IPAddressHelperTest
+	class RandomHelperTest
 	{
 		public void Do()
 		{
-			 var ipaddr= NetworkHelper.GetOuterNetIP();
+			List<int> randomList = new List<int>();
+			ListHelper.RandomNotEqualList(ref randomList, 1, 10, 3);
 		}
 	}
 }

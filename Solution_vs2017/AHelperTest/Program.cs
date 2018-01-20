@@ -12,7 +12,7 @@ namespace AHelperTest
 		static void Main(string[] args)
 		{
 			Console.WriteLine("启动...");
-			new StringHelperTest().Do();
+			new NetworkHelperTest().Do();
 			Console.ReadKey();
 		}
 	}

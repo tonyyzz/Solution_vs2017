@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace System
 {
-	public class IPAddressHelper
+	public class NetworkHelper
 	{
 		private static string url = "http://1212.ip138.com/ic.asp";
 		/// <summary>
@@ -45,6 +45,43 @@ namespace System
 				}
 			}
 			return ipStr;
+		}
+
+		/// <summary>
+		/// 根据ip地址获取城市信息
+		/// </summary>
+		/// <param name="ipAddress"></param>
+		public static NetworkCityInfo GetCityInfo(string ipAddress)
+		{
+			string result = HttpHelper.GetContent("http://int.dpool.sina.com.cn/iplookup/iplookup.php"
+				, $"format=json&ip={ipAddress}", Encoding.GetEncoding("gbk"));
+			var strArr = result.Split(new String[] { "-", "1", "\t" }, StringSplitOptions.RemoveEmptyEntries);
+			NetworkCityInfo networkCityInfo = new NetworkCityInfo
+			{
+				country = strArr[0],
+				province = strArr[1],
+				city = strArr[2],
+			};
+			return networkCityInfo;
+		}
+
+		/// <summary>
+		/// 网络城市信息
+		/// </summary>
+		public class NetworkCityInfo
+		{
+			/// <summary>
+			/// 国家
+			/// </summary>
+			public string country { get; set; }
+			/// <summary>
+			/// 省
+			/// </summary>
+			public string province { get; set; }
+			/// <summary>
+			/// 市
+			/// </summary>
+			public string city { get; set; }
 		}
 	}
 }

@@ -58,6 +58,9 @@
     <Compile Include="Test\IPAddressHelperTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\ListHelperTest.cs" />
+    <Compile Include="Test\NetworkHelperTest.cs" />
+    <Compile Include="Test\RandomHelperTest.cs" />
     <Compile Include="Test\StringHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>

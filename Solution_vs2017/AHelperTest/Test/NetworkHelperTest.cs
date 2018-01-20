@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AHelperTest
+namespace AHelperTest.Test
 {
-	class IPAddressHelperTest
+	class NetworkHelperTest
 	{
 		public void Do()
 		{
-			 var ipaddr= NetworkHelper.GetOuterNetIP();
+			var cityInfo = NetworkHelper.GetCityInfo(NetworkHelper.GetOuterNetIP());
 		}
 	}
 }

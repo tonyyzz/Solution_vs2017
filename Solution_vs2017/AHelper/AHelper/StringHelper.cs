@@ -37,5 +37,35 @@ namespace System
 		{
 			return Regex.Replace(str.Trim(), @"\s+", " ");
 		}
+
+		/// <summary>
+		/// 获取随机字符串
+		/// </summary>
+		/// <param name="length"></param>
+		/// <returns></returns> 
+		public static string GetRandomString(int length)
+		{
+			string s = "123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+			string reValue = string.Empty;
+			Random rnd = new Random(GetNewSeed());
+			while (reValue.Length < length)
+			{
+				string s1 = s[rnd.Next(0, s.Length)].ToString();
+				if (reValue.IndexOf(s1) == -1) reValue += s1;
+			}
+			return reValue;
+		}
+
+		/// <summary>
+		/// 种子
+		/// </summary>
+		/// <returns></returns>
+		private static int GetNewSeed()
+		{
+			byte[] rndBytes = new byte[4];
+			System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+			rng.GetBytes(rndBytes);
+			return BitConverter.ToInt32(rndBytes, 0);
+		}
 	}
 }

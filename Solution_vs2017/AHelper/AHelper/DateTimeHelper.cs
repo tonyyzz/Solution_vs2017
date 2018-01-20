@@ -18,45 +18,47 @@ namespace System
 			return time.ToString("yyyy-MM-dd HH:mm:ss");
 		}
 
-		public static DateTime GetTimeFromUtcUInt(uint timeUint)
-		{
-			return Const.unixTimestampZeroPoint.Add(TimeSpan.FromSeconds(timeUint)).AddHours(8);
-		}
-
 		public static uint GetUtcUIntFromTime(DateTime time)
 		{
-			return (uint)((time.AddHours(-8) - Const.unixTimestampZeroPoint).TotalSeconds);
+			return (uint)((time.AddHours(-8) - DateTimeConst.UnixDateTimeZeroPoint).TotalSeconds);
 		}
 
-		public static int GetTotalSecondsInt()
+		public static DateTime GetTimeFromUtcUInt(uint timeUint)
+		{
+			return DateTimeConst.UnixDateTimeZeroPoint.Add(TimeSpan.FromSeconds(timeUint)).AddHours(8);
+		}
+
+		/// <summary>
+		/// 获取今年已经过了多少秒
+		/// </summary>
+		/// <returns></returns>
+		public static int GetTotalSecondsIntOfThisYear()
 		{
 			return Convert.ToInt32((DateTime.Now - new DateTime(DateTime.Now.Year, 1, 1)).TotalSeconds);
 		}
-
-		/// 获取时间戳
+		/// <summary>
+		/// 获取指定时间的Unix时间戳字符串
 		/// </summary>
 		/// <returns></returns>
-		public static string GetTimeStamp(this System.DateTime time)
+		public static string GetTimeStamp(this DateTime time)
 		{
-			long ts = ConvertDateTimeToInt(time);
-			return ts.ToString();
+			return ConvertDateTimeToInt(time).ToString();
 		}
 		/// <summary>  
 		/// 将c# DateTime时间格式转换为Unix时间戳格式  
 		/// </summary>  
 		/// <param name="time">时间</param>  
 		/// <returns>long</returns>  
-		public static long ConvertDateTimeToInt(System.DateTime time)
+		public static long ConvertDateTimeToInt(DateTime time)
 		{
-			System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
-			long t = (time.Ticks - startTime.Ticks) / 10000;   //除10000调整为13位      
-			return t;
+			DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+			return (time.Ticks - startTime.Ticks) / 10000;   //除10000调整为13位      
 		}
 
-		public class Const
+		public class DateTimeConst
 		{
-			public static DateTime unixTimestampZeroPoint = new DateTime(1970, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-			public static uint TimeUInt = (uint)((DateTime.UtcNow - unixTimestampZeroPoint).TotalSeconds);
+			public static DateTime UnixDateTimeZeroPoint = new DateTime(1970, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+			public static uint UnixTimeUInt = (uint)((DateTime.UtcNow - UnixDateTimeZeroPoint).TotalSeconds);
 		}
 	}
 }

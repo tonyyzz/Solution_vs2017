@@ -41,6 +41,10 @@ namespace System
 			return str;
 		}
 
+		/// <summary>
+		/// 如果文件存在，则删除
+		/// </summary>
+		/// <param name="path"></param>
 		public static void DeleteIfExists(string path)
 		{
 			if (File.Exists(path))

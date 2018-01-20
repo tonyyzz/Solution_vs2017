@@ -27,6 +27,23 @@ namespace System
 			return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj));
 		}
 
+		/// <summary>
+		/// 获取类的所有属性名称
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="model"></param>
+		/// <param name="exceptKeys">要剔除的属性名称</param>
+		/// <returns></returns>
+		public static IEnumerable<string> GetAllPropKeys<T>(this T model, List<string> exceptKeys = null) where T : class
+		{
+			var keys = model.GetType().GetProperties().ToList().Select(m => m.Name).ToList();
+			if (exceptKeys != null && exceptKeys.Any())
+			{
+				keys = keys.Except(exceptKeys).ToList();
+			}
+			return keys;
+		}
+
 		#region Json序列化与反序列化
 		/// <summary>
 		/// Json序列化为字符串
@@ -79,8 +96,21 @@ namespace System
 				}
 			}
 		}
+
+		/// <summary>  
+		/// Xml字符串反序列化为对象
+		/// </summary>
+		public static T XmlDeserialize<T>(this string xmlStr) where T : class
+		{
+			using (var reader = new StringReader(xmlStr))
+			{
+				var temp = XmlReader.Create(reader);
+				return new XmlSerializer(typeof(T)).Deserialize(temp) as T;
+			}
+		}
+
 		/// <summary>
-		/// Xml反序列化为对象
+		/// Xml流反序列化为对象
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="stream"></param>
@@ -90,8 +120,15 @@ namespace System
 			return new XmlSerializer(typeof(T)).Deserialize(stream) as T;
 		}
 		#endregion
-
-		public static Dictionary<string, string> GetKeyValueDict<T>(this T obj, bool isToDesc = false) where T : class
+		
+		/// <summary>
+		/// 获取对象的属性名或者描述和值的键值对列表
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="obj"></param>
+		/// <param name="isToDesc"></param>
+		/// <returns></returns>
+		public static Dictionary<string, string> GetPropOrDescKeyValueDict<T>(this T obj, bool isToDesc = false) where T : class
 		{
 			Dictionary<string, string> dict = new Dictionary<string, string>();
 			var allProoKeys = obj.GetAllPropKeys();

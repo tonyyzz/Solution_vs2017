@@ -12,13 +12,13 @@ namespace System.Collections.Generic
 	public static class ListHelper
 	{
 		/// <summary>
-		/// 根据list再分组，得到矩阵
+		/// 根据list再分组，得到矩阵列表
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="source"></param>
 		/// <param name="groupCol">每组数据个数</param>
 		/// <returns></returns>
-		public static IEnumerable<List<T>> GetMatrix<T>(this IEnumerable<T> source, int groupCol)
+		public static IEnumerable<List<T>> GetGroupList<T>(this IEnumerable<T> source, int groupCol)
 		{
 			for (int i = 0; i < source.Count(); i = i + groupCol)
 			{
@@ -62,6 +62,34 @@ namespace System.Collections.Generic
 			else
 			{
 				return list.Where(func).ToList();
+			}
+		}
+
+		/// <summary>
+		/// 在指定范围内得到n个不相等的随机数列表
+		/// </summary>
+		/// <param name="randomList">随机数的返回集合</param>
+		/// <param name="minVal">生成的随机数可以包含该数字</param>
+		/// <param name="maxVal">生成的随机数不包含该数字</param>
+		/// <param name="num">产生随机数的个数，num的值要小于等于（maxVal-minVal）</param>
+		/// <param name="seedInt">一般不传参，作为产生随机数的种子使用，但不全是作为种子，内部会累加</param>
+		public static void RandomNotEqualList(ref List<int> randomList, int minVal, int maxVal, int num, int seedInt = 0)
+		{
+			if (maxVal <= minVal || num > maxVal - minVal)
+			{
+				throw new Exception(" RandomHelper.GetRandomNotEqualList() 参数不合法！");
+			}
+			if (seedInt >= int.MaxValue - 2)
+			{
+				seedInt = 0;
+			}
+			Random r = new Random(DateTimeHelper.GetTotalSecondsIntOfThisYear() + seedInt);
+
+			randomList.Add(r.Next(minVal, maxVal + 1));
+			randomList = randomList.Distinct().ToList();
+			if (randomList.Count() < num)
+			{
+				RandomNotEqualList(ref randomList, minVal, maxVal, num, seedInt + 1);
 			}
 		}
 	}

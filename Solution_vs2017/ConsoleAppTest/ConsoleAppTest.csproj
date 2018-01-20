@@ -97,6 +97,7 @@
     <Compile Include="Test\RandomListTest.cs" />
     <Compile Include="Test\ThreadPoolInfoTest.cs" />
     <Compile Include="Test\TimerTest.cs" />
+    <Compile Include="Test\TimeZoneTest.cs" />
     <Compile Include="tsqlTest\BaseDAL.cs" />
     <Compile Include="tsqlTest\PersonModel.cs" />
     <Compile Include="ThreadPoolBaseInherit\ThreadPoolBase.cs" />

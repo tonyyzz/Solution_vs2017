@@ -14,7 +14,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new EpplusTest().Do();
+			new TimeZoneTest().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

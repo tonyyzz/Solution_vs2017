@@ -19,6 +19,22 @@ namespace SMSBomber
 
 		private void btnStart_Click(object sender, EventArgs e)
 		{
+			string phoneNumber = tbxPhoneNumber.Text;
+			if (phoneNumber.IsNullOrWhiteSpace())
+			{
+				tbxPhoneNumber.Text = "";
+				MessageBox.Show("请填写手机号！");
+				tbxPhoneNumber.Focus();
+				return;
+			}
+			string countStr = tbxCount.Text;
+			if (countStr.IsNullOrWhiteSpace())
+			{
+				tbxCount.Text = "";
+				MessageBox.Show("请填写次数！");
+				tbxCount.Focus();
+				return;
+			}
 
 		}
 	}

@@ -14,11 +14,11 @@ namespace iGdou.Collection.Common
 		private System.Net.Http.HttpClient _client;
 		private HttpClientHandler handler;
 
-		private string _userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36";
-		private string _acceptLanguage = "zh-CN,zh;q=0.8";
-		private string _accept = "text/html, application/xhtml+xml, */*";
-		private string _acceptEncoding = "gzip, deflate, sdch";
-		private string _charset = "utf8";
+		private string _userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36 QIHU 360EE";
+		private string _acceptLanguage = "gzip, deflate, sdch, br";
+		private string _accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+		private string _acceptEncoding = "gzip, deflate, sdch, br";
+		private string _charset = "utf-8";
 
 		public string UserAgent { set { ChangeHeaders("User-Agent", value); } }
 		public string AcceptLanguage { set { ChangeHeaders("Accept-Language", value); } }

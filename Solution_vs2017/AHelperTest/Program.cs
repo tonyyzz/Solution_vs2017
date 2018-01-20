@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AHelperTest.Test;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace AHelperTest
 		static void Main(string[] args)
 		{
 			Console.WriteLine("启动...");
-			//new NetworkHelperTest().Do();
+			new HttpHelperTest().Do();
 			Console.ReadKey();
 		}
 	}

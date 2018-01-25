@@ -14,7 +14,7 @@ namespace ConsoleAppTest
 		{
 			Console.WriteLine($"测试中...");
 
-			new TimeZoneTest().Do();
+			//new DateTimeStaticTest().Do();
 			//ClientScript
 			Console.ReadKey(); 
 		}

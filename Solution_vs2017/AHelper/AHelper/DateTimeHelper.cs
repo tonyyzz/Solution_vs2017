@@ -58,7 +58,6 @@ namespace System
 		public class DateTimeConst
 		{
 			public static DateTime UnixDateTimeZeroPoint = new DateTime(1970, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-			//public static uint UnixTimeUInt = (uint)((DateTime.UtcNow - UnixDateTimeZeroPoint).TotalSeconds);
 		}
 	}
 }

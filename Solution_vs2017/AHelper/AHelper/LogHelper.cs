@@ -63,6 +63,10 @@ namespace System
 		/*
 		 在webconfig的configuration节点下添加以下配置项，并在网站启动时添加代码：log4net.Config.XmlConfigurator.Configure();
 
+		<configSections>
+		<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"></section>
+	</configSections>
+
 	<!--log4net此节点和section节点里的配置是log4net的，还要startup.cs里的 log4net.Config.XmlConfigurator.Configure(); 都是必要的-->
 	<log4net>
 		<root>

@@ -53,6 +53,10 @@ namespace System
 		/// <returns></returns>
 		public static string JsonSerialize<T>(this T jsonObj) where T : class
 		{
+			if (jsonObj == null)
+			{
+				return null;
+			}
 			return JsonConvert.SerializeObject(jsonObj);
 		}
 
@@ -120,7 +124,7 @@ namespace System
 			return new XmlSerializer(typeof(T)).Deserialize(stream) as T;
 		}
 		#endregion
-		
+
 		/// <summary>
 		/// 获取对象的属性名或者描述和值的键值对列表
 		/// </summary>

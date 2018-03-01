@@ -68,6 +68,10 @@ namespace System
 		/// <returns></returns>
 		public static T JsonDeserialize<T>(this string jsonStr)
 		{
+			if (jsonStr.IsNullOrWhiteSpace())
+			{
+				return default(T);
+			}
 			return JsonConvert.DeserializeObject<T>(jsonStr);
 		}
 		#endregion

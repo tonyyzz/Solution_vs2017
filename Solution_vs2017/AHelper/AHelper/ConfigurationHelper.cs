@@ -29,7 +29,7 @@ namespace System
 		/// <returns></returns>
 		public static string GetAppSettingStr(string str)
 		{
-			return ConfigurationManager.AppSettings[str] ?? "";
+			return ConfigurationManager.AppSettings[str] ?? ""; 
 		}
 	}
 }

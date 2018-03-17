@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{55C641B6-8264-4FCE-8CC4-259798B61385}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSBomber", "SMSBomber\SMSBomber.csproj", "{B42446A7-09F4-43DE-9658-2A63BBCA0EEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E27F0C7D-2724-469D-85A0-2CF1ABACBE70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_AHelper", "_AHelper", "{C38E3A22-CBD2-4E60-8903-A992734D76B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{55C641B6-8264-4FCE-8CC4-259798B61385} = {E27F0C7D-2724-469D-85A0-2CF1ABACBE70}
 		{B5FC1B93-5EA1-42F8-996F-7DE004ADDA24} = {E27F0C7D-2724-469D-85A0-2CF1ABACBE70}
+		{08B344A0-D71B-4A91-9729-826471DEA45F} = {C38E3A22-CBD2-4E60-8903-A992734D76B5}
+		{BE49CAE3-0295-4280-92CC-07881FD142DD} = {C38E3A22-CBD2-4E60-8903-A992734D76B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDDE5179-88C1-4A34-9842-A9ABE131DDA4}
